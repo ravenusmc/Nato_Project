@@ -1,6 +1,6 @@
 # NATO Study
 ## Intro
-    This is a project to study NATO. 
+    This is a project to study NATO. It will use three datasets that I have included in the link below. 
 
 
 
