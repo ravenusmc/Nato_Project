@@ -3,7 +3,7 @@
     This is a project to study NATO. It will use three datasets that I have included in the link below. 
 
 
-Kaggle site: (where the data is)
+Kaggle website: (where the data is)
 
 # Getting started
 ### Installing
