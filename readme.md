@@ -1,9 +1,13 @@
 # NATO Study
 ## Intro
-    This is a project to study NATO. It will use three datasets that I have included in the link below. 
+    This is a project to study NATO. It will use three datasets that I have included in the link below. I intend for this 
+project to be quite large. I really want to try and push myself with it but of couse we will see where that will go since I may 
+get bored. 
 
 
 Kaggle website: (where the data is)
+https://www.kaggle.com/datasets/maulikgajera/nato-alliance-dataset?select=NATO_2_Equipment_Inventory.csv
+
 
 # Getting started
 ### Installing
