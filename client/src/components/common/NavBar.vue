@@ -9,12 +9,6 @@
       </div>
     </div>
 
-    <!-- Status indicator -->
-    <div class="status">
-      <span class="pulse-dot"></span>
-      <span class="status-label">ONLINE</span>
-    </div>
-
     <!-- Nav links -->
     <ul class="nav-links">
       <li>
@@ -109,32 +103,6 @@ export default {
   letter-spacing: 2.5px;
   color: #c9a84c;
   opacity: 0.8;
-}
-
-/* ── Status dot ── */
-.status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #4caf6e;
-  box-shadow: 0 0 0 0 rgba(76, 175, 110, 0.4);
-  animation: pulse 2s infinite;
-}
-
-.status-label {
-  font-size: 0.55rem;
-  letter-spacing: 3px;
-  color: #4caf6e;
-  font-weight: 600;
 }
 
 /* ── Nav links ── */
