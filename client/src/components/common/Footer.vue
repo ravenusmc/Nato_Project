@@ -5,7 +5,7 @@
       <div class="brand-mark">◈</div>
       <div class="brand-info">
         <span class="brand-name">DOUBLE SUN PRODUCTIONS</span>
-        <span class="brand-copy">&copy; 2025 &mdash; ALL RIGHTS RESERVED</span>
+        <span class="brand-copy">&copy; 2026 &mdash; ALL RIGHTS RESERVED</span>
       </div>
     </div>
 
