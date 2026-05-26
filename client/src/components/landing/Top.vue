@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
 
-/* .picture-div {
+.picture-div {
   width: 100%;
   height: 750px;
   border-radius: 10px;
@@ -31,6 +31,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin-left: 5%;
-} */
+} 
 
 </style>
