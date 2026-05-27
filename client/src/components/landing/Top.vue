@@ -4,7 +4,7 @@
       <div class="picture-div">
 
       </div>
-      <div>
+      <div class="paragraph-div">
         
       </div>
     </div>
@@ -32,5 +32,9 @@ export default {
   align-items: center;
   margin-left: 5%;
 } 
+
+.paragraph-div {
+  
+}
 
 </style>
