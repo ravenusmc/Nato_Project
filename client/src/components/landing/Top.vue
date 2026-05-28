@@ -5,7 +5,6 @@
 
       </div>
       <div class="paragraph-div">
-        
       </div>
     </div>
   </div>
@@ -33,8 +32,8 @@ export default {
   margin-left: 5%;
 } 
 
-.paragraph-div {
+/* .paragraph-div {
   
-}
+} */
 
 </style>
