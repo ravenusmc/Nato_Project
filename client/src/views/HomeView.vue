@@ -18,8 +18,6 @@ export default {
 
 <style scoped>
 
-/* .main-div {
-  background-color: #003B75;
-} */
+
 
 </style>
