@@ -33,6 +33,8 @@ export default {
   grid-template-columns: 1fr 1fr;
   background-color: #003B75;
   margin-top: 100px;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .picture-div {

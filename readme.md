@@ -8,6 +8,10 @@ get bored.
 Kaggle website: (where the data is)
 https://www.kaggle.com/datasets/maulikgajera/nato-alliance-dataset?select=NATO_2_Equipment_Inventory.csv
 
+pictures come from Unsplash: 
+https://unsplash.com/s/photos/nato?license=free
+
+
 
 # Getting started
 ### Installing
