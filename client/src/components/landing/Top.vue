@@ -4,15 +4,24 @@
       <div class="picture-div">
       </div>
       <div class="paragraph-div">
-        <p>As a young child I can remember watching the longest Day, a movie about the D-Day. My mom told me about how it wasn't just the Americans
-          in the fight. Instead, we had allies all going to invade Europe together. I was fascinated by this idea - we were not going into the fight alone 
-          but with friends. Eventually I learned about NATO and I was always intrigued by it. I had the same sense of wonder that we had all of these allies 
-          to help us in a fight. 
+        <p>As a young child, I remember watching The Longest Day, a film about the D-Day landings during World War II. Afterward, 
+          my mother explained that it was not just Americans fighting in Europe. Soldiers from many nations fought side by side, 
+          united in a common cause. That idea fascinated me. There was something inspiring about the thought that countries could come 
+          together, relying on one another in moments of crisis. As I grew older and learned more about NATO, that same sense of wonder 
+          remained. The alliance represented the idea that nations are often stronger when they stand together rather than alone.
         </p>
         <p>
-          This project is a study of NATO. I've got three massive datasets that we'll use and look at. There are three files that I will be using in this project. 
-          The first is about NATO country stats, the second is equipment inventory and the third is Operations and missions. I will be using 
-          these datasets to build some graphs to see what we can learn about the data. 
+          This project is a study of NATO and the member nations that make up the alliance. To explore this topic, I will be working with 
+          three large datasets. The first contains statistics about NATO countries, the second focuses on military equipment inventories, 
+          and the third covers NATO operations and missions. By analyzing these datasets and creating visualizations, I hope to uncover 
+          interesting patterns, trends, and relationships within the alliance.
+        </p>
+        <p>
+          Beyond my interest in NATO itself, this project also combines another hobby of mine: data science and data visualization. 
+          I enjoy taking large datasets and transforming them into graphs and charts that tell a story. NATO provides an ideal subject 
+          for this kind of analysis because of the wide variety of information available, from military capabilities and equipment 
+          inventories to operational history and member-state statistics. Through this project, I hope not only to learn more about the 
+          alliance but also to improve my skills in analyzing and presenting complex data in a meaningful way.
         </p>
       </div>
     </div>
@@ -33,27 +42,47 @@ export default {
   grid-template-columns: 1fr 1fr;
   background-color: #003B75;
   margin-top: 100px;
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding: 2% 4%;
 }
 
 .picture-div {
-  width: 100%;
-  height: 750px;
   border-radius: 10px;
   background: url("../../assets/images/NATO_Woman.jpg") center/cover no-repeat;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-  display: flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5%;
-} 
+  min-height: 400px;
+  align-self: stretch;
+  margin: 2%;
+}
 
 .paragraph-div {
-  color: white; 
-  font-size: 1.5rem;
-  padding: 10%;
+  color: white;
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  padding: 5% 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .top-div {
+    grid-template-columns: 1fr;
+    padding: 4%;
+  }
+
+  .picture-div {
+    min-height: 320px;
+    margin: 0 0 4%;
+  }
+
+  .paragraph-div {
+    padding: 4%;
+  }
+}
+
+@media (max-width: 480px) {
+  .picture-div {
+    min-height: 240px;
+  }
 }
 
 </style>
