@@ -40,8 +40,6 @@ export default {
 .top-div {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #003B75;
-  margin-top: 100px;
   padding: 2% 4%;
 }
 
@@ -52,6 +50,7 @@ export default {
   min-height: 400px;
   align-self: stretch;
   margin: 2%;
+  margin-top: 50px;
 }
 
 .paragraph-div {

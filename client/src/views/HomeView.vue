@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-div-landing">
     <Top/>
     <Middle />
     <Bottom />
@@ -24,6 +24,8 @@ export default {
 
 <style scoped>
 
-
+.main-div-landing {
+  background-color: #003B75;
+}
 
 </style>
