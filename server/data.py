@@ -15,11 +15,12 @@ class BuildData():
   # This method will need 
   def get_data_for_year(self, year):
     distinct_by_year = self.data.groupby('Year')['Country'].unique()
-    print(distinct_by_year)
-    # I need to start at the min year and then show each country growing by year 
+    return distinct_by_year[year]
 
 
+# ['Belgium' 'Canada' 'Denmark' 'France' 'Iceland' 'Italy' 'Luxembourg'
+#  'Netherlands' 'Norway' 'Portugal' 'United Kingdom' 'United States']
 
 
 obj = BuildData()
-obj.get_data_for_year(1949) 
+obj.get_data_for_year(1960) 
