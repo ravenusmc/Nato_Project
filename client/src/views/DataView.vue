@@ -1,6 +1,5 @@
 <template>
   <div>
-
   </div>
 </template>
 
@@ -8,4 +7,8 @@
 </script>
 
 <style scoped>
+
+p {
+  margin-top: 500px;
+}
 </style>
