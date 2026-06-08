@@ -18,19 +18,16 @@ const getters = {
 
 const actions = {
 
-  grabGraphData: ({ commit }) => {
-		// const path = 'http://localhost:5000/getInitialDataForGraphs';
-		// axios.get(path)
-		// 	.then((res) => {
-        // // console.log(res.data)
-		// 		commit('setScreenTimeVsHappiness', res.data['Screen_vs_Happeniness'])
-        // commit('setSleepVsStressData', res.data['sleep_vs_stress'])
-        // commit('setDetoxDaysVsStress', res.data['detox_days_vs_stress'])
-        // commit('setExerciseVsHappiness', res.data['exercise_vs_happiness'])
-		// 	})
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 	});
+  grabMapData: ({ commit }, payload) => {
+		const path = 'http://localhost:5000/getInitialDataForMapGraph';
+    axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
+			.then((res) => {
+        console.log(res.data)
+				commit('setNATO_States', res.data['Screen_vs_Happeniness'])
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	},
 
 };

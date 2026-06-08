@@ -8,11 +8,12 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
-#This will get the initial data for the graphs that need it. 
-@app.route('/getInitialDataForGraphs', methods=['GET'])
+@app.route('/getInitialDataForMapGraph', methods=['GET', 'POST'])
 def getInitialDataForGraphs():
-    if request.method == 'GET':
-      return jsonify(data_dictionary)
+    if request.method == 'POST':
+      post_data = request.get_json()
+      print(post_data) 
+      return jsonify('5')
 
 if __name__ == '__main__':
     app.run(debug=True)

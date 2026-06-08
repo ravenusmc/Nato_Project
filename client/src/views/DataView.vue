@@ -11,7 +11,6 @@
             id="username" 
             type="number" 
             v-model="year" 
-            placeholder="Enter Year:"
           />
         </div>
         <button type="submit">Submit</button>
@@ -24,6 +23,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -31,8 +32,11 @@ export default {
     }
   },
   methods: {
+    ...mapActions("datapage", ["grabMapData"]),
     handleSubmit() {
+      const payload = { year: this.year };
       console.log(this.year)
+      this.grabMapData(payload);
     }
   }
 }
