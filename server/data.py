@@ -14,8 +14,8 @@ class BuildData():
   
   # This method will need 
   def get_data_for_year(self, year):
-    distinct_by_year = self.data.groupby('Year')['Country'].unique().apply(list)
-    return distinct_by_year[year]
+    distinct_by_year = self.data[self.data['Year'] == int(year)]['Country'].unique().tolist()
+    return distinct_by_year
 
 
 # ['Belgium' 'Canada' 'Denmark' 'France' 'Iceland' 'Italy' 'Luxembourg'
@@ -23,4 +23,4 @@ class BuildData():
 
 
 obj = BuildData()
-obj.get_data_for_year(1960) 
+obj.get_data_for_year('1960') 
