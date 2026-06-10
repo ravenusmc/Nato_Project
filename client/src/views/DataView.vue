@@ -17,7 +17,7 @@
       </form>
     </div>
     <p>{{ this.initialMapYear }}</p>
-    <div class="world-map-area">
+    <div ref="NATO-map">>
 
     </div>
   </div>
@@ -32,8 +32,17 @@ export default {
       year: '',
     }
   },
+  watch: {
+    NATO_States: {
+      handler: "buildCauseOfDeathGraph",
+      deep: true,
+    },
+  },
+  mounted() {
+    this.buildCauseOfDeathGraph();
+  },
   computed: {
-    ...mapGetters("datapage", ["initialMapYear"]),
+    ...mapGetters("datapage", ["initialMapYear", "NATO_States"]),
   },
   methods: {
     ...mapActions("datapage", ["grabMapData"]),
@@ -41,7 +50,10 @@ export default {
       const payload = { year: this.year };
       console.log(this.year)
       this.grabMapData(payload);
-    }
+    },
+    buildWorldMap() {
+
+    }  
   }
 }
 </script>
