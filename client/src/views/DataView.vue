@@ -16,6 +16,7 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+    <p>{{ this.initialMapYear }}</p>
     <div class="world-map-area">
 
     </div>
@@ -23,13 +24,16 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       year: '',
     }
+  },
+  computed: {
+    ...mapGetters("datapage", ["initialMapYear"]),
   },
   methods: {
     ...mapActions("datapage", ["grabMapData"]),
