@@ -16,10 +16,7 @@
         <button type="submit">Submit</button>
       </form>
     </div>
-    <p>{{ this.initialMapYear }}</p>
-    <div ref="NATO-map">>
 
-    </div>
   </div>
 </template>
 
