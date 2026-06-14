@@ -28,9 +28,9 @@ export default {
       deep: true,
     },
   },
-  computed: {
-    ...mapGetters("datapage", ["initialMapYear"]),
-  },
+  // computed: {
+  //   ...mapGetters("datapage", ["initialMapYear"]),
+  // },
   methods: {
     ...mapActions("datapage", ["grabMapData"]),
     handleSubmit() {
