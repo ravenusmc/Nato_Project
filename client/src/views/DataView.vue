@@ -3,15 +3,21 @@
     <div class="header-area">
       <h3>The Data</h3>
     </div>
-
-
+    <Form />
+    <Map />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Form from '@/components/forms/Form.vue'
+import Map from '@/components/maps/Map.vue'
 
 export default {
+  components: {
+    Form,
+    Map
+  },
   data() {
     return {
       year: '',

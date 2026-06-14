@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="NATO-map">>
+    <div ref="NATO-map">
 
     </div>
   </div>
@@ -25,11 +25,6 @@ export default {
   },
   methods: {
     ...mapActions("datapage", ["grabMapData"]),
-    handleSubmit() {
-      const payload = { year: this.year };
-      console.log(this.year)
-      this.grabMapData(payload);
-    },
     buildWorldMap() {
 
     }  
