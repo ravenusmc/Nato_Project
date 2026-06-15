@@ -20,7 +20,8 @@ const WORLD_GEOJSON_URL =
 const NAME_ALIASES = {
   "USA": "United States",
   "United States of America": "United States",
-  "UK": "United Kingdom",
+  "England": "United Kingdom",
+  "Turkey": "Türkiye"
 };
 
 export default {
@@ -85,6 +86,7 @@ export default {
       let worldData;
       try {
         worldData = await d3.json(WORLD_GEOJSON_URL);
+        console.log(worldData)
       } catch (err) {
         console.error("Could not load world map data:", err);
         return;
