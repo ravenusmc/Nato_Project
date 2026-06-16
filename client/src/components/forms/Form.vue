@@ -3,11 +3,14 @@
     <div class="form-area">
       <form @submit.prevent="handleSubmit">
         <div>
-          <label for="year">Year:</label>
+          <label for="year">Please Enter Year:</label>
           <input 
             id="username" 
             type="number" 
             v-model="year" 
+            :placeholder="initialMapYear"
+            min="1949" 
+            max="2020" 
           />
         </div>
         <button type="submit">Submit</button>
@@ -28,9 +31,9 @@ export default {
       deep: true,
     },
   },
-  // computed: {
-  //   ...mapGetters("datapage", ["initialMapYear"]),
-  // },
+  computed: {
+    ...mapGetters("datapage", ["initialMapYear"]),
+  },
   methods: {
     ...mapActions("datapage", ["grabMapData"]),
     handleSubmit() {

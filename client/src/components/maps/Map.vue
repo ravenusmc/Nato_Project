@@ -1,5 +1,6 @@
 <template>
   <div style="position: relative;">
+    <h3 class="Map-Title">World Map of NATO States: {{ initialMapYear }}</h3>
     <div ref="natoMap"></div>
     <div ref="tooltip" class="map-tooltip" style="display: none;"></div>
   </div>
@@ -27,11 +28,9 @@ const NAME_ALIASES = {
 
 export default {
   name: "Map",
-
   computed: {
-    ...mapGetters("datapage", ["NATO_States"]),
+    ...mapGetters("datapage", ["NATO_States", "initialMapYear"]),
   },
-
   watch: {
     // Re-draw whenever the store's NATO_States list changes (e.g. after a
     // form submission fetches new data from the server).
@@ -40,11 +39,9 @@ export default {
       deep: true,
     },
   },
-
   mounted() {
     this.buildWorldMap();
   },
-
   methods: {
     async buildWorldMap() {
       // ── 1. Clear any previous render ────────────────────────────────────
@@ -62,7 +59,9 @@ export default {
         .select(this.$refs.natoMap)
         .append("svg")
         .attr("viewBox", `0 0 ${width} ${height}`)
-        .attr("width", "100%")
+        .attr("width", "95%")
+        .style("display", "block")
+        .style("margin", "0 auto")
         .style("background-color", "#c8e6f5"); // light blue "ocean"
 
       // ── 4. Map projection ────────────────────────────────────────────────
@@ -87,7 +86,6 @@ export default {
       let worldData;
       try {
         worldData = await d3.json(WORLD_GEOJSON_URL);
-        console.log(worldData)
       } catch (err) {
         console.error("Could not load world map data:", err);
         return;
@@ -153,6 +151,11 @@ export default {
 </script>
 
 <style scoped>
+.Map-Title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .map-tooltip {
   position: absolute;
   background: rgba(20, 20, 20, 0.85);
