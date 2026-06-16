@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div style="position: relative;">
     <div ref="natoMap"></div>
+    <div ref="tooltip" class="map-tooltip" style="display: none;"></div>
   </div>
 </template>
 
@@ -105,12 +106,14 @@ export default {
         natoSet.has(geoName) || natoSet.has(NAME_ALIASES[geoName]);
 
       // ── 8. Draw every country as an SVG <path> ───────────────────────────
+      const tooltip = d3.select(this.$refs.tooltip);
+
       svg
         .selectAll("path")
-        .data(worldData.features)   // bind one datum per country feature
+        .data(worldData.features)
         .enter()
         .append("path")
-        .attr("d", pathGenerator)   // project lat/lng → SVG shape
+        .attr("d", pathGenerator)
         .attr("fill", (d) =>
           isNATO(d.properties.name)
             ? "#4a90d9"  // NATO member  → blue
@@ -118,12 +121,52 @@ export default {
         )
         .attr("stroke", "#ffffff")
         .attr("stroke-width", 0.5)
-        .append("title")            // native browser tooltip on hover
-        .text((d) => d.properties.name);
+        .on("mouseover", (event, d) => {
+          const name = d.properties.name;
+          const nato = isNATO(name);
+          tooltip
+            .style("display", "block")
+            .html(
+              nato
+                ? `<strong>${name}</strong><br/><span class="nato-badge">NATO Member</span>`
+                : `<strong>${name}</strong>`
+            );
+          if (nato) {
+            d3.select(event.currentTarget).attr("fill", "#2c5f9e");
+          }
+        })
+        .on("mousemove", (event) => {
+          const mapRect = this.$refs.natoMap.getBoundingClientRect();
+          tooltip
+            .style("left", `${event.clientX - mapRect.left + 12}px`)
+            .style("top",  `${event.clientY - mapRect.top  - 28}px`);
+        })
+        .on("mouseout", (event, d) => {
+          tooltip.style("display", "none");
+          if (isNATO(d.properties.name)) {
+            d3.select(event.currentTarget).attr("fill", "#4a90d9");
+          }
+        });
     },
   },
 };
 </script>
 
 <style scoped>
+.map-tooltip {
+  position: absolute;
+  background: rgba(20, 20, 20, 0.85);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.map-tooltip .nato-badge {
+  font-size: 11px;
+  color: #7ec8f7;
+}
 </style>
