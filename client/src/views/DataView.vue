@@ -3,8 +3,11 @@
     <div class="header-area">
       <h3>The Data</h3>
     </div>
+    <!-- This area is for the global map of NATO states-->
     <Form />
     <Map />
+    <!-- This area is for the NATO Membership and History graphs -->
+     <History />
   </div>
 </template>
 
@@ -12,11 +15,14 @@
 import { mapGetters, mapActions } from "vuex";
 import Form from '@/components/forms/Form.vue'
 import Map from '@/components/maps/Map.vue'
+import History from '@/components/dataSections/History.vue'
 
 export default {
   components: {
     Form,
-    Map
+    Map,
+    History, 
+
   },
   data() {
     return {
@@ -39,7 +45,6 @@ export default {
     ...mapActions("datapage", ["grabMapData"]),
     handleSubmit() {
       const payload = { year: this.year };
-      console.log(this.year)
       this.grabMapData(payload);
     },
     buildWorldMap() {

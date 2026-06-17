@@ -12,10 +12,12 @@ class BuildData():
   def test(self):
     print(self.data.head())
   
-  # This method will need 
   def get_data_for_year(self, year):
     distinct_by_year = self.data[self.data['Year'] == int(year)]['Country'].unique().tolist()
     return distinct_by_year
+  
+  def get_NATO_join_by_decade():
+    
 
 
 # ['Belgium' 'Canada' 'Denmark' 'France' 'Iceland' 'Italy' 'Luxembourg'

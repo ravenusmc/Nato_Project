@@ -21,5 +21,12 @@ def getInitialDataForGraphs():
       print(NATO_states_data)
       return jsonify(NATO_states_data)
 
+def getDataForHistoryGraphs():
+  if request.method == 'POST':
+    get_data_object = BuildData()
+    post_data = request.get_json()
+    NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
+
+
 if __name__ == '__main__':
     app.run(debug=True)
