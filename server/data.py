@@ -17,7 +17,8 @@ class BuildData():
     return distinct_by_year
   
   def get_NATO_join_by_decade():
-    
+    pass
+
 
 
 # ['Belgium' 'Canada' 'Denmark' 'France' 'Iceland' 'Italy' 'Luxembourg'

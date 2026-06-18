@@ -40,41 +40,65 @@ export default {
 .top-div {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 2% 4%;
+  gap: 2rem;
+  margin-top: 100px;
+  padding: 2% 5%;
+  align-items: center;
 }
 
 .picture-div {
-  border-radius: 10px;
+  border-radius: 16px;
   background: url("../../assets/images/NATO_Woman.jpg") center/cover no-repeat;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-  min-height: 400px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  min-height: 420px;
   align-self: stretch;
-  margin: 2%;
-  margin-top: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.picture-div:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    0 16px 48px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .paragraph-div {
-  color: white;
-  font-size: clamp(1rem, 1.4vw, 1.5rem);
-  padding: 5% 8%;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.95rem, 1.3vw, 1.3rem);
+  line-height: 1.8;
+  padding: 4% 6%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1.25rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.paragraph-div p {
+  margin: 0;
+  letter-spacing: 0.01em;
 }
 
 @media (max-width: 900px) {
   .top-div {
     grid-template-columns: 1fr;
     padding: 4%;
+    gap: 1.5rem;
   }
 
   .picture-div {
     min-height: 320px;
-    margin: 0 0 4%;
   }
 
   .paragraph-div {
     padding: 4%;
+    border-left: none;
+    border-top: 3px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1.5rem;
   }
 }
 
