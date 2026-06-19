@@ -11,11 +11,13 @@ const data = {
     'Netherlands', 'Norway', 'Portugal', 'United Kingdom', 'United States'
   ],
   initialMapYear: 1949, 
+  joinByDecadeData: [['1940-1949', 12], ['1950-1959', 3], ['1980-1989', 1], ['1990-1999', 3], ['2000-2009', 9], ['2010-2019', 1], ['2020-2029', 3]], 
 }
 
 const getters = {
   NATO_States: (state) => state.NATO_States,
   initialMapYear: (state) => state.initialMapYear, 
+  joinByDecadeData: (state) => state.joinByDecadeData,
 };
 
 const actions = {
