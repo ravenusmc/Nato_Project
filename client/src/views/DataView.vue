@@ -29,15 +29,6 @@ export default {
       year: '',
     }
   },
-  watch: {
-    NATO_States: {
-      handler: "buildCauseOfDeathGraph",
-      deep: true,
-    },
-  },
-  mounted() {
-    this.buildCauseOfDeathGraph();
-  },
   computed: {
     ...mapGetters("datapage", ["initialMapYear", "NATO_States"]),
   },

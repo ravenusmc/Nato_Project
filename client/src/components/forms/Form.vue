@@ -26,12 +26,12 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Form",
-  watch: {
-    NATO_States: {
-      handler: "buildCauseOfDeathGraph",
-      deep: true,
-    },
-  },
+  // watch: {
+  //   NATO_States: {
+  //     handler: "buildCauseOfDeathGraph",
+  //     deep: true,
+  //   },
+  // },
   computed: {
     ...mapGetters("datapage", ["initialMapYear"]),
   },
