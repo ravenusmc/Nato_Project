@@ -43,7 +43,7 @@ export default {
         .range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
 
-            // Tooltip
+      // Tooltip
       const tooltip = d3
         .select(this.$refs.JoinNATOGraph)
         .append("div")
@@ -58,7 +58,7 @@ export default {
       const showTooltip = (event, d) => {
         tooltip
           .style("opacity", 1)
-          .html(`Cause of Death: ${d[0]}<br>Number of Deaths: ${d[1]}`)
+          .html(`Decade: ${d[0]}<br>Count: ${d[1]}`)
           .style("left", event.pageX + 10 + "px")
           .style("top", event.pageY - 10 + "px");
       };
@@ -79,7 +79,7 @@ export default {
         .attr("y", height)
         .attr("width", x.bandwidth())
         .attr("height", 0)
-        .attr("fill", "#121212")
+        .attr("fill", "#003B75")
         .on("click", (event, d) => this.handleBarClick(d, event))
         .on("mouseover", showTooltip)
         .on("mousemove", moveTooltip)
@@ -88,6 +88,34 @@ export default {
         .duration(1500)
         .attr("y", (d) => y(d[1]))
         .attr("height", (d) => height - y(d[1]));
+    
+      // Labels
+      // X-axis
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Year (By Decade)");
+
+      // Y-Axis 
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Count");
+
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2 + 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("States Joining NATO by Decade");
 
     }
   },
