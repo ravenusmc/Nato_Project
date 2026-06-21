@@ -10,7 +10,7 @@
             v-model="year"
             :placeholder="initialMapYear"
             min="1949"
-            max="2020"
+            max="2025"
           />
           <span class="field-hint">1949 &ndash; 2020</span>
         </div>
@@ -26,12 +26,6 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Form",
-  // watch: {
-  //   NATO_States: {
-  //     handler: "buildCauseOfDeathGraph",
-  //     deep: true,
-  //   },
-  // },
   computed: {
     ...mapGetters("datapage", ["initialMapYear"]),
   },

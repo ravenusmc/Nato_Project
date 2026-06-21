@@ -4,10 +4,10 @@ I took a quick look at your dataset. It has 27 columns and includes country info
 
 | Graph Type  | Columns                     | What it Shows                                      |
 | ----------- | --------------------------- | -------------------------------------------------- |
-| Bar Chart   | `Join_Year`, `Country`      | Number of countries joining NATO by decade or year |
+| Bar Chart   | `Join_Year`, `Country`      | Number of countries joining NATO by decade or year | - DONE 
 | Timeline    | `Country`, `Join_Year`      | Visual timeline of NATO expansion                  |
 | Histogram   | `Years_In_NATO`             | Distribution of how long members have been in NATO |
-| Pie Chart   | `Founding_Member`           | Percentage of founding vs later members            |
+| Pie Chart   | `Founding_Member`           | Percentage of founding vs later members            | - working 
 | Stacked Bar | `Region`, `Founding_Member` | Founding vs non-founding members by region         |
 
 ---

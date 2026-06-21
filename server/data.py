@@ -44,9 +44,8 @@ class BuildData():
       join_year_data.append(rows)
     print(join_year_data)
 
-
-# ['Belgium' 'Canada' 'Denmark' 'France' 'Iceland' 'Italy' 'Luxembourg'
-#  'Netherlands' 'Norway' 'Portugal' 'United Kingdom' 'United States']
+  def founding_member_pie_chart(self): 
+    
 
 
 obj = BuildData()
