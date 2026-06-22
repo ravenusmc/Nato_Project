@@ -116,7 +116,6 @@ export default {
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("States Joining NATO by Decade");
-
     }
   },
   mounted() {
