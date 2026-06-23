@@ -45,8 +45,17 @@ class BuildData():
     print(join_year_data)
 
   def founding_member_pie_chart(self): 
-    
+    founding_member_data = []
+    rows = []
+    # Keep only one row per country
+    unique_states = self.data.drop_duplicates(subset=["Country"])
+    founding_member = int((unique_states['Founding_Member'] == 'Yes').sum())
+    non_founding_member = int((unique_states['Founding_Member'] == 'No').sum())
+    rows.append(founding_member)
+    rows.append(non_founding_member)
+    founding_member_data.append(rows)
+    print(founding_member_data)
 
 
 obj = BuildData()
-obj.get_NATO_join_by_decade() 
+obj.founding_member_pie_chart() 
