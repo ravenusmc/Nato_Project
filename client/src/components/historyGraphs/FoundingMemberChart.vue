@@ -102,7 +102,7 @@ export default {
         .style("font-weight", "bold")
         .text((d) => d.data.value);
 
-      // Legend
+      // Legend - fix
       const legend = d3
         .select(this.$refs.FoundingMemberPieChart)
         .select("svg")
