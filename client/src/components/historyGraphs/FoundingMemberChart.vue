@@ -107,7 +107,7 @@ export default {
         .select(this.$refs.FoundingMemberPieChart)
         .select("svg")
         .append("g")
-        .attr("transform", `translate(${width - 170}, 20)`);
+        .attr("transform", `translate(${width - 170}, 10)`);
 
       data.forEach((d, i) => {
         const row = legend.append("g").attr("transform", `translate(0, ${i * 24})`);
