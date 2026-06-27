@@ -1,8 +1,10 @@
 <template>
   <div>
     <h3 class="title-area">NATO Membership & History</h3>
-    <JoinGraph/>
-    <FoundingMemberChart/>
+    <div class="history-graph-area">
+      <JoinGraph/>
+      <FoundingMemberChart/>
+    </div>
   </div>
 </template>
 
@@ -21,6 +23,11 @@ export default {
 </script>
 
 <style scope>
+
+.history-graph-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 .title-area {
   text-align: center;
