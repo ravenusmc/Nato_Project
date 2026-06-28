@@ -54,7 +54,17 @@ class BuildData():
     rows.append(non_founding_member)
     founding_member_data.append(rows)
     print(founding_member_data)
-
+  
+  # Distribution of how long members have been in NATO
+  def getDataForYearsInNato(self):
+    # Get the current (max) years in NATO for each country
+    max_years = self.data.groupby("Country")["Years_In_NATO"].max().reset_index()
+    max_years["Years_In_NATO"] = max_years["Years_In_NATO"].astype(int)
+    # Count how many countries have each years-in-NATO value
+    counts = max_years.groupby("Years_In_NATO").size().reset_index(name="Count")
+    years_in_nato_data = [[int(row["Years_In_NATO"]), int(row["Count"])] for _, row in counts.iterrows()]
+    print(years_in_nato_data)
+    return years_in_nato_data
 
 obj = BuildData()
-obj.founding_member_pie_chart() 
+obj.getDataForYearsInNato() 

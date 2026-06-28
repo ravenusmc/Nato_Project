@@ -28,5 +28,8 @@ def getDataForHistoryGraphs():
     NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
 
 
+   
+
+
 if __name__ == '__main__':
     app.run(debug=True)
