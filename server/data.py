@@ -64,7 +64,7 @@ class BuildData():
     counts = max_years.groupby("Years_In_NATO").size().reset_index(name="Count")
     years_in_nato_data = [[int(row["Years_In_NATO"]), int(row["Count"])] for _, row in counts.iterrows()]
     print(years_in_nato_data)
-    return years_in_nato_data
+
 
 obj = BuildData()
 obj.getDataForYearsInNato() 
