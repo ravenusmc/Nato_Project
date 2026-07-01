@@ -6,7 +6,7 @@
 
 <script>
 import * as d3 from "d3";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "JoinGraph",
