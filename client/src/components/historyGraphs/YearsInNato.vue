@@ -68,6 +68,16 @@ export default {
       const hideTooltip = () => {
         tooltip.style("opacity", 0);
       };
+      
+      // Labels
+      // X-axis
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Year (By Decade)");
 
 
     }
