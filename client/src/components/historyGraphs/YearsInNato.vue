@@ -68,6 +68,38 @@ export default {
       const hideTooltip = () => {
         tooltip.style("opacity", 0);
       };
+
+      // Line connecting points
+      const line = d3
+        .line()
+        .x((d) => x(d[0]) + x.bandwidth() / 2)
+        .y((d) => y(d[1]));
+
+      svg
+        .append("path")
+        .datum(this.yearsInNatoData)
+        .attr("fill", "none")
+        .attr("stroke", "#003B75")
+        .attr("stroke-width", 2)
+        .attr("d", line);
+
+      // Points
+      svg
+        .selectAll("circle")
+        .data(this.yearsInNatoData)
+        .enter()
+        .append("circle")
+        .attr("cx", (d) => x(d[0]) + x.bandwidth() / 2)
+        .attr("cy", height)
+        .attr("r", 6)
+        .attr("fill", "#003B75")
+        .on("click", (event, d) => this.handleBarClick(d, event))
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip)
+        .transition()
+        .duration(1500)
+        .attr("cy", (d) => y(d[1]));
       
       // Labels
       // X-axis
@@ -77,7 +109,25 @@ export default {
         .attr("y", height + margin.bottom - 10)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Year (By Decade)");
+        .text("Number of Years");
+      
+      // Y-Axis 
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Count");
+      
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2 + 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Years in NATO");
 
 
     }
