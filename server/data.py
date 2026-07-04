@@ -64,7 +64,25 @@ class BuildData():
     counts = max_years.groupby("Years_In_NATO").size().reset_index(name="Count")
     years_in_nato_data = [[int(row["Years_In_NATO"]), int(row["Count"])] for _, row in counts.iterrows()]
     print(years_in_nato_data)
+  
+  # Get distrubution of founding vs non founding member by region 
+  def getFoundingVsNonFoundingByRegion(self):
+    FoundingVsNonFoundingByRegionData = []
+    unique_states = self.data.drop_duplicates(subset=["Country"])
+    #Need to get Unique regions. 
+    unique_regions = ['Southern Europe', 'Western Europe', 'Eastern Europe', 'North America', 'Central Europe', 'Northern Europe']
+    for region in unique_regions: 
+      rows = []
+      rows.append(region)
+      founding_member_states = len(unique_states[(unique_states['Founding_Member'] == 'Yes') & (unique_states['Region'] == region)])
+      Non_founding_member_states = len(unique_states[(unique_states['Founding_Member'] == 'No') & (unique_states['Region'] == region)])
+      rows.append(founding_member_states)
+      rows.append(Non_founding_member_states)
+      FoundingVsNonFoundingByRegionData.append(rows)
+    print(FoundingVsNonFoundingByRegionData)
+
+      #I need the number of founding states and non-founding 
 
 
 obj = BuildData()
-obj.getDataForYearsInNato() 
+obj.getFoundingVsNonFoundingByRegion() 

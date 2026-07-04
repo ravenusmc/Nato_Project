@@ -6,7 +6,7 @@ I took a quick look at your dataset. It has 27 columns and includes country info
 | ----------- | --------------------------- | -------------------------------------------------- |
 | Bar Chart   | `Join_Year`, `Country`      | Number of countries joining NATO by decade or year | - DONE 
 | Timeline    | `Country`, `Join_Year`      | Visual timeline of NATO expansion                  |
-| Histogram   | `Years_In_NATO`             | Distribution of how long members have been in NATO | - working 
+| Histogram   | `Years_In_NATO`             | Distribution of how long members have been in NATO | - DONE 
 | Pie Chart   | `Founding_Member`           | Percentage of founding vs later members            | - DONE 
 | Stacked Bar | `Region`, `Founding_Member` | Founding vs non-founding members by region         |
 
