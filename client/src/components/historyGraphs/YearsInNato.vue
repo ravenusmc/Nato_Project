@@ -109,7 +109,7 @@ export default {
         .attr("y", height + margin.bottom - 10)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Number of Years");
+        .text("Number of Years in NATON");
       
       // Y-Axis 
       svg
@@ -119,7 +119,7 @@ export default {
         .attr("y", -margin.left + 20)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Count");
+        .text("Count of States");
       
       svg
         .append("text")
