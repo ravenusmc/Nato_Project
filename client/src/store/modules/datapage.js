@@ -14,7 +14,14 @@ const data = {
   joinByDecadeData: [['1940-1949', 12], ['1950-1959', 3], ['1980-1989', 1], ['1990-1999', 3], ['2000-2009', 9], ['2010-2019', 1], ['2020-2029', 3]], 
   foundingMemberPieChart: [[12, 20]], 
   yearsInNatoData: [[0, 1], [1, 1], [4, 1], [7, 1], [15, 2], [20, 7], [25, 3], [42, 1], [69, 1], [72, 2], [75, 12]],
-  FoundingVsNonFoundingByRegionData: [['Southern Europe', 1, 7], ['Western Europe', 6, 2], ['Eastern Europe', 0, 2], ['North America', 2, 0], ['Central Europe', 0, 4], ['Northern Europe', 3, 5]],
+  FoundingVsNonFoundingByRegionData: [
+    ['Southern Europe', {'Founding_Member': 1, 'Non_Founding_Member': 7}], 
+    ['Western Europe', {'Founding_Member': 6, 'Non_Founding_Member': 2}], 
+    ['Eastern Europe', {'Founding_Member': 0, 'Non_Founding_Member': 2}], 
+    ['North America', {'Founding_Member': 2, 'Non_Founding_Member': 0}], 
+    ['Central Europe', {'Founding_Member': 0, 'Non_Founding_Member': 4}], 
+    ['Northern Europe', {'Founding_Member': 3, 'Non_Founding_Member': 5}]
+  ],
 }
 
 const getters = {

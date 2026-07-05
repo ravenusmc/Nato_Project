@@ -73,11 +73,13 @@ class BuildData():
     unique_regions = ['Southern Europe', 'Western Europe', 'Eastern Europe', 'North America', 'Central Europe', 'Northern Europe']
     for region in unique_regions: 
       rows = []
+      type_of_member = {}
       rows.append(region)
-      founding_member_states = len(unique_states[(unique_states['Founding_Member'] == 'Yes') & (unique_states['Region'] == region)])
-      Non_founding_member_states = len(unique_states[(unique_states['Founding_Member'] == 'No') & (unique_states['Region'] == region)])
-      rows.append(founding_member_states)
-      rows.append(Non_founding_member_states)
+      founding_member_states_count = len(unique_states[(unique_states['Founding_Member'] == 'Yes') & (unique_states['Region'] == region)])
+      Non_founding_member_states_count = len(unique_states[(unique_states['Founding_Member'] == 'No') & (unique_states['Region'] == region)])
+      type_of_member['Founding_Member'] = founding_member_states_count
+      type_of_member['Non_Founding_Member'] = Non_founding_member_states_count
+      rows.append(type_of_member)
       FoundingVsNonFoundingByRegionData.append(rows)
     print(FoundingVsNonFoundingByRegionData)
 
