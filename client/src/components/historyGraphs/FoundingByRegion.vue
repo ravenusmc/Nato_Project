@@ -56,7 +56,13 @@ export default {
         .range([0, width])
         .domain(chartData.map((d) => d.region))
         .padding(0.2);
-        svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(x));
+        svg
+          .append("g")
+          .attr("transform", `translate(0,${height})`)
+          .call(d3.axisBottom(x))
+          .selectAll("text")
+          .attr("transform", "rotate(45)")
+          .style("text-anchor", "start");
 
       // Y axis
       // CHANGE 4: The tallest bar is now the TOTAL of both counts added together,
@@ -133,8 +139,8 @@ export default {
         .attr("y", height + margin.bottom - 10)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Region");
-
+        .text("Region")
+        
       // Y-Axis 
       svg
         .append("text")
@@ -151,7 +157,7 @@ export default {
         .attr("y", -margin.top / 2 + 10)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("States Joining NATO by Region and Founding Member vs Non-Founding Member");
+        .text("States Joining NATO by Region");
 
       // CHANGE 7: Add a small color key so people know which color means
       // Founding Member and which one means Non-Founding Member.
