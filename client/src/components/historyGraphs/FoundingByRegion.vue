@@ -15,11 +15,18 @@ export default {
   },
   methods: {
     buildFoundingByRegionGraph() {
-      
-      const margin = { top: 50, right: 30, bottom: 50, left: 70 };
+
+      // Overall chart size and the padding reserved on each side for axes/
+      // labels. `bottom` is taller than the others because the x-axis labels
+      // (region names) are rotated 45° and need vertical room to clear the
+      // "Region" axis title underneath them without getting clipped.
+      const margin = { top: 50, right: 30, bottom: 110, left: 70 };
       const width = 460 - margin.left - margin.right;
       const height = 400 - margin.top - margin.bottom;
 
+      // Root <svg>, sized to include the margins, with an inner <g> shifted
+      // right/down by the margin so everything drawn below is positioned
+      // relative to the plot area (0,0 = top-left of the chart itself).
       const svg = d3
         .select(this.$refs.FoundingVsNonFoundingByRegion)
         .append("svg")
@@ -27,22 +34,24 @@ export default {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
-      
-      // CHANGE 1: Turn each [name, {a, b}] pair into one easy object like
-      // { region: name, Founding_Member: a, Non_Founding_Member: b }.
-      // The stacking helper (d3.stack) needs objects like this, not pairs.
+
+      // Reshape the incoming [name, {a, b}] pairs into flat objects like
+      // { region: name, Founding_Member: a, Non_Founding_Member: b }, which
+      // is the shape d3.stack() expects to work with.
       const stackKeys = ["Founding_Member", "Non_Founding_Member"];
       const chartData = this.FoundingVsNonFoundingByRegionData.map(([region, counts]) => ({
         region,
         ...counts,
       }));
 
-      // CHANGE 2: Ask d3 to stack (pile up) the two counts on top of each other
-      // for every region, instead of just using one number per region.
+      // Compute stacked layout: for each region, this piles Founding_Member
+      // and Non_Founding_Member on top of one another so the bars can be
+      // drawn as stacked segments instead of two separate bars.
       const series = d3.stack().keys(stackKeys)(chartData);
 
-      // CHANGE 3: Give each stacked piece a color, and remember which piece
-      // (Founding_Member or Non_Founding_Member) it is so the tooltip can say so.
+      // Assign a color per category, then tag every stacked segment with
+      // its category name (piece.key) so later code (bars, tooltip) knows
+      // which series a given rectangle belongs to.
       const color = d3.scaleOrdinal().domain(stackKeys).range(["#003B75", "#8ecae6"]);
       series.forEach((oneSeries) => {
         oneSeries.forEach((piece) => {
@@ -50,7 +59,9 @@ export default {
         });
       });
 
-      // X axis
+      // X axis: one band per region, drawn along the bottom of the chart.
+      // Tick labels are rotated 45° and anchored at "start" so long region
+      // names read diagonally instead of overlapping each other.
       const x = d3
         .scaleBand()
         .range([0, width])
@@ -64,16 +75,17 @@ export default {
           .attr("transform", "rotate(45)")
           .style("text-anchor", "start");
 
-      // Y axis
-      // CHANGE 4: The tallest bar is now the TOTAL of both counts added together,
-      // not just one number, since the pieces stack on top of each other.
+      // Y axis: scales from 0 up to the tallest stacked total (the sum of
+      // Founding_Member + Non_Founding_Member for whichever region has the
+      // most states), since bars are stacked rather than side-by-side.
       const y = d3
         .scaleLinear()
         .domain([0, d3.max(chartData, (d) => d.Founding_Member + d.Non_Founding_Member)])
         .range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
 
-      // Tooltip
+      // Floating tooltip element, hidden by default (opacity 0) and
+      // positioned/shown on hover by the handlers below.
       const tooltip = d3
         .select(this.$refs.FoundingVsNonFoundingByRegion)
         .append("div")
@@ -85,9 +97,9 @@ export default {
         .style("padding", "8px")
         .style("border-radius", "5px");
 
-      // CHANGE 5: Since each bar piece now knows its region (d.data.region),
-      // its category (d.key), and its own count (d.data[d.key]), the tooltip
-      // shows those instead of the old "Decade / Count" pair.
+      // Tooltip handlers: each stacked segment (d) carries its region
+      // (d.data.region), its category (d.key), and its own count
+      // (d.data[d.key]), so the tooltip can show "Region: X / Category: N".
       const showTooltip = (event, d) => {
         tooltip
           .style("opacity", 1)
@@ -102,11 +114,11 @@ export default {
         tooltip.style("opacity", 0);
       };
 
-      // Bars
-      // CHANGE 6: First make one <g> group per color (Founding vs Non-Founding),
-      // then draw one rect per region inside each group. Each rect sits at its
-      // stacked position (d[0] = bottom of this piece, d[1] = top of this piece)
-      // instead of always starting at 0, so the pieces stack on top of each other.
+      // Bars: one <g> group per category (Founding vs Non-Founding), each
+      // colored via `fill` on the group. Inside each group, one <rect> per
+      // region is drawn at its stacked position (d[0] = bottom of this
+      // segment, d[1] = top of this segment) so segments stack instead of
+      // overlapping. Bars start at height/0 and animate up to full size.
       svg
         .append("g")
         .selectAll("g")
@@ -131,8 +143,10 @@ export default {
         .attr("y", (d) => y(d[1]))
         .attr("height", (d) => y(d[0]) - y(d[1]));
 
-      // Labels
-      // X-axis
+      // Axis title labels
+      // X-axis title, placed below the rotated tick labels (which occupy the
+      // space right under the axis line), near the bottom of the reserved
+      // margin.
       svg
         .append("text")
         .attr("x", width / 2)
@@ -140,8 +154,10 @@ export default {
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("Region")
-        
-      // Y-Axis 
+
+      // Y-axis title, rotated -90° to read vertically alongside the axis,
+      // and shifted left into the left margin so it doesn't overlap the
+      // tick number labels.
       svg
         .append("text")
         .attr("transform", "rotate(-90)")
@@ -151,6 +167,7 @@ export default {
         .attr("font-weight", "bold")
         .text("Count");
 
+      // Chart title, centered above the plot area in the top margin.
       svg
         .append("text")
         .attr("x", width / 2)
@@ -159,8 +176,9 @@ export default {
         .attr("font-weight", "bold")
         .text("States Joining NATO by Region");
 
-      // CHANGE 7: Add a small color key so people know which color means
-      // Founding Member and which one means Non-Founding Member.
+      // Legend: a small colored square + label per category (Founding vs
+      // Non-Founding Member), stacked vertically in the top-right of the
+      // chart, so the bar colors are identifiable at a glance.
       const legend = svg
         .selectAll(".legend")
         .data(stackKeys)

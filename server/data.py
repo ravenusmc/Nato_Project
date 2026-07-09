@@ -82,8 +82,9 @@ class BuildData():
       rows.append(type_of_member)
       FoundingVsNonFoundingByRegionData.append(rows)
     print(FoundingVsNonFoundingByRegionData)
-
-      #I need the number of founding states and non-founding 
+  
+  def get_data_for_timeline(self):
+    pass
 
 
 obj = BuildData()
