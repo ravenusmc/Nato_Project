@@ -85,7 +85,9 @@ class BuildData():
   
   def get_data_for_timeline(self):
     #Need to get dates states joined Nato - put in end date for 2026
-    pass
+    timeLineData = []
+    unique_states = self.data.drop_duplicates(subset=["Country"])
+
 
 
 obj = BuildData()
