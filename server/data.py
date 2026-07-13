@@ -87,9 +87,17 @@ class BuildData():
     #Need to get dates states joined Nato - put in end date for 2026
     timeLineData = []
     unique_states = self.data.drop_duplicates(subset=["Country"])
-    # Join year is Join_Year and the last year will be 2026. 
+    for country, year in zip(unique_states['Country'], unique_states['Join_Year']):
+      rows = []
+      country_data = {}
+      country_data['Country'] = country 
+      country_data['Join Year'] = year 
+      country_data['Current Year'] = 2026
+      rows.append(country_data)
+      timeLineData.append(rows)
+    print(timeLineData)
+    # print(f"Country: {country}, Join Year: {year}")
     
-    print(unique_states)
 
 
 obj = BuildData()
