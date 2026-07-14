@@ -88,13 +88,10 @@ class BuildData():
     timeLineData = []
     unique_states = self.data.drop_duplicates(subset=["Country"])
     for country, year in zip(unique_states['Country'], unique_states['Join_Year']):
-      rows = []
       country_data = {}
       country_data['Country'] = country 
       country_data['Join Year'] = year 
-      country_data['Current Year'] = 2026
-      rows.append(country_data)
-      timeLineData.append(rows)
+      timeLineData.append(country_data)
     print(timeLineData)
     # print(f"Country: {country}, Join Year: {year}")
     
