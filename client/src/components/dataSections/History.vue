@@ -6,6 +6,7 @@
       <FoundingMemberChart/>
       <YearsInNato />
       <FoundingByRegion />
+      <TimeLine />
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@ import JoinGraph from '@/components/historyGraphs/JoinGraph.vue';
 import FoundingMemberChart from '@/components/historyGraphs/FoundingMemberChart.vue';
 import YearsInNato from '@/components/historyGraphs/YearsInNato.vue';
 import FoundingByRegion from '@/components/historyGraphs/FoundingByRegion.vue';
+import TimeLine from '@/components/historyGraphs/TimeLine.vue';
 
 export default {
   name: "History",
@@ -23,6 +25,7 @@ export default {
     FoundingMemberChart, 
     YearsInNato, 
     FoundingByRegion,
+    TimeLine
   },
 }
 

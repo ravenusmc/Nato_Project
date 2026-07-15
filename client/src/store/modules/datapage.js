@@ -65,6 +65,7 @@ const getters = {
   foundingMemberPieChart: (state) => state.foundingMemberPieChart, 
   yearsInNatoData: (state) => state.yearsInNatoData, 
   FoundingVsNonFoundingByRegionData: (state) => state.FoundingVsNonFoundingByRegionData, 
+  NatoTimeLineData: (state) => state.NatoTimeLineData,
 };
 
 const actions = {
