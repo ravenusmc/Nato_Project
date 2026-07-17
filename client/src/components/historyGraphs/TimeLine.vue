@@ -13,6 +13,9 @@ export default {
   computed: {
     ...mapGetters("datapage", ["NatoTimeLineData"]),
   },
+  methods: {
+    
+  }
 }
 
 </script>
