@@ -2,11 +2,11 @@
   <div>
     <h3 class="title-area">NATO Membership & History</h3>
     <div class="history-graph-area">
+      <TimeLine />
       <JoinGraph/>
       <FoundingMemberChart/>
       <YearsInNato />
       <FoundingByRegion />
-      <TimeLine />
     </div>
   </div>
 </template>
