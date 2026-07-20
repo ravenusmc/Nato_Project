@@ -55,7 +55,9 @@ const data = {
     {'Country': 'Türkiye', 'Join Year': 1952}, 
     {'Country': 'United Kingdom', 'Join Year': 1949}, 
     {'Country': 'United States', 'Join Year': 1949}
-  ]
+  ], 
+  // Data Fields dealing with economy 
+  
 }
 
 const getters = {

@@ -84,7 +84,6 @@ class BuildData():
     print(FoundingVsNonFoundingByRegionData)
   
   def get_data_for_timeline(self):
-    #Need to get dates states joined Nato - put in end date for 2026
     timeLineData = []
     unique_states = self.data.drop_duplicates(subset=["Country"])
     for country, year in zip(unique_states['Country'], unique_states['Join_Year']):
@@ -94,8 +93,20 @@ class BuildData():
       timeLineData.append(country_data)
     print(timeLineData)
     # print(f"Country: {country}, Join Year: {year}")
+  
+  def largest_Nato_economies(self): 
+    largest_Nato_economies = []
+    unique_states = self.data.drop_duplicates(subset=["Country"])
+    for country, GDP in zip(unique_states['Country'], unique_states['GDP_Billion_USD']):
+      rows = []
+      rows.append(country)
+      rows.append(GDP)
+      largest_Nato_economies.append(rows)
+    largest_Nato_economies.sort(key=lambda x: x[1])
+    print(largest_Nato_economies)
+    
     
 
 
 obj = BuildData()
-obj.get_data_for_timeline() 
+obj.largest_Nato_economies() 

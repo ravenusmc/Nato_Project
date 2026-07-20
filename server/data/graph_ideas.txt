@@ -5,10 +5,10 @@ I took a quick look at your dataset. It has 27 columns and includes country info
 | Graph Type  | Columns                     | What it Shows                                      |
 | ----------- | --------------------------- | -------------------------------------------------- |
 | Bar Chart   | `Join_Year`, `Country`      | Number of countries joining NATO by decade or year | - DONE 
-| Timeline    | `Country`, `Join_Year`      | Visual timeline of NATO expansion                  |
+| Timeline    | `Country`, `Join_Year`      | Visual timeline of NATO expansion                  | - DONE
 | Histogram   | `Years_In_NATO`             | Distribution of how long members have been in NATO | - DONE 
 | Pie Chart   | `Founding_Member`           | Percentage of founding vs later members            | - DONE 
-| Stacked Bar | `Region`, `Founding_Member` | Founding vs non-founding members by region         |
+| Stacked Bar | `Region`, `Founding_Member` | Founding vs non-founding members by region         | - DONE 
 
 ---
 
@@ -16,7 +16,7 @@ I took a quick look at your dataset. It has 27 columns and includes country info
 
 | Graph Type   | Columns                                         | What it Shows                                            |
 | ------------ | ----------------------------------------------- | -------------------------------------------------------- |
-| Bar Chart    | `Country`, `GDP_Billion_USD`                    | Largest NATO economies                                   |
+| Bar Chart    | `Country`, `GDP_Billion_USD`                    | Largest NATO economies                                   | - Working 
 | Bar Chart    | `Country`, `GDP_Per_Capita_USD`                 | Wealthiest NATO members per capita                       |
 | Scatter Plot | `GDP_Billion_USD`, `Defense_Budget_Billion_USD` | Relationship between economic size and military spending |
 | Scatter Plot | `Population_M`, `GDP_Billion_USD`               | Population versus economy size                           |
