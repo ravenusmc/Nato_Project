@@ -10,6 +10,7 @@
     </div>
     <h3 class="title-area">Economic Strength</h3>
     <div class="graph-area">
+      <EconomiesBarChart />
     </div>
   </div>
 </template>
@@ -22,7 +23,7 @@ import YearsInNato from '@/components/historyGraphs/YearsInNato.vue';
 import FoundingByRegion from '@/components/historyGraphs/FoundingByRegion.vue';
 import TimeLine from '@/components/historyGraphs/TimeLine.vue';
 // Economic Graphs 
-
+import EconomiesBarChart from '@/components/EconomicGraphs/Economies.vue';
 
 export default {
   name: "History",
@@ -31,7 +32,8 @@ export default {
     FoundingMemberChart, 
     YearsInNato, 
     FoundingByRegion,
-    TimeLine
+    TimeLine, 
+    EconomiesBarChart, 
   },
 }
 

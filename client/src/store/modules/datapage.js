@@ -57,7 +57,39 @@ const data = {
     {'Country': 'United States', 'Join Year': 1949}
   ], 
   // Data Fields dealing with economy 
-  
+  NatoCountriesEconomies: [
+    ['Montenegro', 5.57], 
+    ['North Macedonia', 12.51], 
+    ['Albania', 18.66], 
+    ['Iceland', 25.37], 
+    ['Estonia', 36.7], 
+    ['Latvia', 38.92], 
+    ['Slovenia', 63.38], 
+    ['Croatia', 64.38], 
+    ['Lithuania', 70.77], 
+    ['Luxembourg', 82.53], 
+    ['Bulgaria', 86.93], 
+    ['Slovakia', 118.63], 
+    ['Hungary', 186.34], 
+    ['Greece', 226.7], 
+    ['Portugal', 246.3], 
+    ['Czech Republic', 280.83], 
+    ['Finland', 295.89], 
+    ['Romania', 296.25], 
+    ['Denmark', 386.71], 
+    ['Norway', 544.14], 
+    ['Belgium', 558.41], 
+    ['Sweden', 581.53], 
+    ['Poland', 643.65], 
+    ['Türkiye', 879.28], 
+    ['Netherlands', 1033.91], 
+    ['Spain', 1487.9], 
+    ['Canada', 1970.55], 
+    ['Italy', 1999.6], 
+    ['France', 3130.85], 
+    ['United Kingdom', 3322.92], 
+    ['Germany', 4274.2], 
+    ['United States', 26634.71]]
 }
 
 const getters = {
@@ -68,6 +100,7 @@ const getters = {
   yearsInNatoData: (state) => state.yearsInNatoData, 
   FoundingVsNonFoundingByRegionData: (state) => state.FoundingVsNonFoundingByRegionData, 
   NatoTimeLineData: (state) => state.NatoTimeLineData,
+  NatoCountriesEconomies: (state) => state.NatoCountriesEconomies, 
 };
 
 const actions = {
