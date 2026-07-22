@@ -1,6 +1,6 @@
 <template>
   <div>
-    TEST 
+    <div ref="economies"></div>
   </div>
 </template>
 
