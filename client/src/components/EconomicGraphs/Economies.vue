@@ -1,6 +1,7 @@
 <template>
   <div>
     <div ref="economies"></div>
+    test
   </div>
 </template>
 
@@ -26,8 +27,26 @@ export default {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
+      
+      // X axis
+      const x = d3
+        .scaleBand()
+        .range([0, width])
+        .domain(this.NatoCountriesEconomies.map((d) => d[0]))
+        .padding(0.2);
+        svg.append("g").attr("transform", `translate(0,${height})`).call(d3.axisBottom(x));
+      
+      // Y axis
+      const y = d3
+        .scaleLinear()
+        .domain([0, d3.max(this.NatoCountriesEconomies, (d) => d[1])])
+        .range([height, 0]);
+      svg.append("g").call(d3.axisLeft(y));
     }
-  }
+  },
+  mounted() {
+    this.buildEconomiesChart();
+  },
 }
 
 </script>
