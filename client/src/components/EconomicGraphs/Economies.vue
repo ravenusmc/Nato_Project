@@ -1,7 +1,6 @@
 <template>
   <div>
     <div ref="economies"></div>
-    test
   </div>
 </template>
 
@@ -42,6 +41,73 @@ export default {
         .domain([0, d3.max(this.NatoCountriesEconomies, (d) => d[1])])
         .range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
+      
+      // Tooltip
+      const tooltip = d3
+        .select(this.$refs.economies)
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "1px solid #ccc")
+        .style("padding", "8px")
+        .style("border-radius", "5px");
+
+      const showTooltip = (event, d) => {
+        tooltip
+          .style("opacity", 1)
+          .html(`Country: ${d[0]}<br>Economy Size (Billions): ${d[1]}`)
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+      const moveTooltip = (event) => {
+        tooltip.style("left", event.pageX + 10 + "px").style("top", event.pageY - 10 + "px");
+      };
+      const hideTooltip = () => {
+        tooltip.style("opacity", 0);
+      };
+
+      // Bars
+      svg
+        .selectAll("rect")
+        .data(this.NatoCountriesEconomies)
+        .enter()
+        .append("rect")
+        .attr("x", (d) => x(d[0]))
+        .attr("y", height)
+        .attr("width", x.bandwidth())
+        .attr("height", 0)
+        .attr("fill", "#003B75")
+        .on("click", (event, d) => this.handleBarClick(d, event))
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip)
+        .transition()
+        .duration(1500)
+        .attr("y", (d) => y(d[1]))
+        .attr("height", (d) => height - y(d[1]));
+    
+      // Labels
+      // X-axis
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("State");
+      
+      // Y-Axis 
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Economy Size");
+
     }
   },
   mounted() {
