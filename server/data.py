@@ -108,10 +108,15 @@ class BuildData():
   def get_GDP_Per_Capita_Data(self):
     GDP_economies = []
     unique_states = self.data.drop_duplicates(subset=["Country"])
-    for country, GDP in zip(unique_states['Country'], unique_states['GDP_Per_Capita_USD']):
-      pass
+    for country, GDP_Per_Capita in zip(unique_states['Country'], unique_states['GDP_Per_Capita_USD']):
+      rows = []
+      rows.append(country)
+      rows.append(GDP_Per_Capita)
+      GDP_economies.append(rows)
+    GDP_economies.sort(key=lambda x: x[1])
+    print(GDP_economies)
     
 
 
 obj = BuildData()
-obj.largest_Nato_economies() 
+obj.get_GDP_Per_Capita_Data() 

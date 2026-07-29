@@ -17,7 +17,7 @@ I took a quick look at your dataset. It has 27 columns and includes country info
 | Graph Type   | Columns                                         | What it Shows                                            |
 | ------------ | ----------------------------------------------- | -------------------------------------------------------- |
 | Bar Chart    | `Country`, `GDP_Billion_USD`                    | Largest NATO economies                                   | - Done 
-| Bar Chart    | `Country`, `GDP_Per_Capita_USD`                 | Wealthiest NATO members per capita                       |
+| Bar Chart    | `Country`, `GDP_Per_Capita_USD`                 | Wealthiest NATO members per capita                       | - WORKING 
 | Scatter Plot | `GDP_Billion_USD`, `Defense_Budget_Billion_USD` | Relationship between economic size and military spending |
 | Scatter Plot | `Population_M`, `GDP_Billion_USD`               | Population versus economy size                           |
 | Line Chart   | `Year`, `GDP_Billion_USD`                       | Economic growth over time for selected countries         |
