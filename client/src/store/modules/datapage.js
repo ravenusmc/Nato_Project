@@ -135,6 +135,7 @@ const getters = {
   FoundingVsNonFoundingByRegionData: (state) => state.FoundingVsNonFoundingByRegionData, 
   NatoTimeLineData: (state) => state.NatoTimeLineData,
   NatoCountriesEconomies: (state) => state.NatoCountriesEconomies, 
+  NatoCountriesGDPDATA: (state) => state.NatoCountriesGDPDATA,
 };
 
 const actions = {
