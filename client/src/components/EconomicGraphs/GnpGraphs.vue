@@ -1,2 +1,146 @@
 <template>
+  <div>
+    <div ref="gnpgraph"></div>
+  </div>
 </template>
+
+<script>
+import * as d3 from "d3";
+import { mapGetters } from "vuex";
+
+export default {
+  name: "GnpGraphs",
+  computed: {
+    ...mapGetters("datapage", ["NatoCountriesGDPDATA"]),
+  },
+  methods: {
+    buildGNPChart() {
+
+      // Bigger canvas + taller bottom margin so rotated state names have room to show
+      const margin = { top: 50, right: 30, bottom: 100, left: 70 };
+      const width = 700 - margin.left - margin.right;
+      const height = 450 - margin.top - margin.bottom;
+
+      const svg = d3
+        .select(this.$refs.gnpgraph)
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+      
+      // X axis
+      const x = d3
+        .scaleBand()
+        .range([0, width])
+        .domain(this.NatoCountriesGDPDATA.map((d) => d[0]))
+        .padding(0.2);
+      
+      // Draw the x-axis, then rotate its labels 45 degrees so long state names don't overlap
+      svg
+        .append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "rotate(45)")
+        .attr("text-anchor", "start")
+        .attr("dx", "0.5em")
+        .attr("dy", "0.5em");
+      
+      // Y axis
+      const y = d3
+        .scaleLinear()
+        .domain([0, d3.max(this.NatoCountriesGDPDATA, (d) => d[1])])
+        .range([height, 0]);
+      svg.append("g").call(d3.axisLeft(y));
+      
+      // Tooltip
+      const tooltip = d3
+        .select(this.$refs.gnpgraph)
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "1px solid #ccc")
+        .style("padding", "8px")
+        .style("border-radius", "5px");
+
+      const showTooltip = (event, d) => {
+        tooltip
+          .style("opacity", 1)
+          .html(`Country: ${d[0]}<br>Economy Size (Billions): ${d[1]}`)
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+      const moveTooltip = (event) => {
+        tooltip.style("left", event.pageX + 10 + "px").style("top", event.pageY - 10 + "px");
+      };
+      const hideTooltip = () => {
+        tooltip.style("opacity", 0);
+      };
+
+      // Bars
+      svg
+        .selectAll("rect")
+        .data(this.NatoCountriesGDPDATA)
+        .enter()
+        .append("rect")
+        .attr("x", (d) => x(d[0]))
+        .attr("y", height)
+        .attr("width", x.bandwidth())
+        .attr("height", 0)
+        .attr("fill", "#003B75")
+        .on("click", (event, d) => this.handleBarClick(d, event))
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip)
+        .transition()
+        .duration(1500)
+        .attr("y", (d) => y(d[1]))
+        .attr("height", (d) => height - y(d[1]));
+      
+      // Labels
+      // X-axis
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("State");
+      
+      // Y-Axis 
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("GNP Per Capita");
+      
+      // Title 
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2 + 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("NATO States GNP Per Capita");
+
+
+    }
+  },
+  mounted() {
+    this.buildGNPChart();
+  },
+}
+
+
+</script>
+
+<stlye scoped>
+
+
+</stlye>

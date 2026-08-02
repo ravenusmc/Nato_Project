@@ -11,6 +11,7 @@
     <h3 class="title-area">Economic Strength</h3>
     <div class="graph-area">
       <EconomiesBarChart />
+      <GnpGraphs />
     </div>
   </div>
 </template>
@@ -24,6 +25,7 @@ import FoundingByRegion from '@/components/historyGraphs/FoundingByRegion.vue';
 import TimeLine from '@/components/historyGraphs/TimeLine.vue';
 // Economic Graphs 
 import EconomiesBarChart from '@/components/EconomicGraphs/Economies.vue';
+import GnpGraphs from '@/components/EconomicGraphs/GnpGraphs.vue';
 
 export default {
   name: "History",
@@ -34,6 +36,7 @@ export default {
     FoundingByRegion,
     TimeLine, 
     EconomiesBarChart, 
+    GnpGraphs,
   },
 }
 
