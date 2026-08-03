@@ -115,6 +115,9 @@ class BuildData():
       GDP_economies.append(rows)
     GDP_economies.sort(key=lambda x: x[1])
     print(GDP_economies)
+
+  def economy_size_vs_military_spending(self): 
+    pass
     
 
 
