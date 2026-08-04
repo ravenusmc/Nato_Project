@@ -117,9 +117,17 @@ class BuildData():
     print(GDP_economies)
 
   def economy_size_vs_military_spending(self): 
-    pass
+    economy_size_vs_military_spending_data = []
+    unique_states = self.data.drop_duplicates(subset=["Country"])
+    for GDP_Billion_USD, Defense_Budget_Billion_USD in zip(unique_states['GDP_Billion_USD'], unique_states['Defense_Budget_Billion_USD']):
+      rows = []
+      rows.append(GDP_Billion_USD)
+      rows.append(Defense_Budget_Billion_USD)
+      economy_size_vs_military_spending_data.append(rows)
+      economy_size_vs_military_spending_data.sort(key=lambda x: x[1])
+    print(economy_size_vs_military_spending_data)
     
 
 
 obj = BuildData()
-obj.get_GDP_Per_Capita_Data() 
+obj.economy_size_vs_military_spending() 
