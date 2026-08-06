@@ -119,10 +119,11 @@ class BuildData():
   def economy_size_vs_military_spending(self): 
     economy_size_vs_military_spending_data = []
     unique_states = self.data.drop_duplicates(subset=["Country"])
-    for GDP_Billion_USD, Defense_Budget_Billion_USD in zip(unique_states['GDP_Billion_USD'], unique_states['Defense_Budget_Billion_USD']):
+    for GDP_Billion_USD, Defense_Budget_Billion_USD, country in zip(unique_states['GDP_Billion_USD'], unique_states['Defense_Budget_Billion_USD'], unique_states['Country']):
       rows = []
       rows.append(GDP_Billion_USD)
       rows.append(Defense_Budget_Billion_USD)
+      rows.append(country)
       economy_size_vs_military_spending_data.append(rows)
       economy_size_vs_military_spending_data.sort(key=lambda x: x[1])
     print(economy_size_vs_military_spending_data)
