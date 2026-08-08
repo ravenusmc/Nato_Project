@@ -109,7 +109,7 @@ export default {
         .attr("y", height + margin.bottom - 10)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Number of Years in NATON");
+        .text("Number of Years in NATO");
       
       // Y-Axis 
       svg

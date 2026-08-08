@@ -124,6 +124,39 @@ const data = {
     ['Norway', 100209.94], 
     ['Luxembourg', 137550.0]
   ],
+  EconomyMilitarySize: [
+    [5.57, 0.09, 'Montenegro'], 
+    [18.66, 0.18, 'Albania'], 
+    [12.51, 0.4, 'North Macedonia'], 
+    [25.37, 0.48, 'Iceland'], 
+    [36.7, 1.22, 'Estonia'], 
+    [38.92, 1.35, 'Latvia'], 
+    [70.77, 1.51, 'Lithuania'], 
+    [86.93, 1.54, 'Bulgaria'], 
+    [118.63, 2.36, 'Slovakia'], 
+    [82.53, 2.39, 'Luxembourg'], 
+    [63.38, 2.41, 'Slovenia'], 
+    [64.38, 2.69, 'Croatia'], 
+    [280.83, 2.95, 'Czech Republic'], 
+    [296.25, 4.06, 'Romania'], 
+    [246.3, 4.88, 'Portugal'], 
+    [186.34, 4.96, 'Hungary'], 
+    [544.14, 5.44, 'Norway'], 
+    [226.7, 6.05, 'Greece'], 
+    [386.71, 7.0, 'Denmark'], 
+    [295.89, 7.72, 'Finland'], 
+    [558.41, 9.44, 'Belgium'], 
+    [581.53, 12.56, 'Sweden'], 
+    [1033.91, 14.06, 'Netherlands'], 
+    [643.65, 17.76, 'Poland'], 
+    [879.28, 24.97, 'Türkiye'], 
+    [3130.85, 33.5, 'France'], 
+    [1999.6, 41.99, 'Italy'], 
+    [1970.55, 47.69, 'Canada'], 
+    [3322.92, 48.18, 'United Kingdom'], 
+    [1487.9, 51.18, 'Spain'], 
+    [4274.2, 179.09, 'Germany'], 
+    [26634.71, 761.75, 'United States']]
 }
 
 const getters = {
@@ -136,6 +169,7 @@ const getters = {
   NatoTimeLineData: (state) => state.NatoTimeLineData,
   NatoCountriesEconomies: (state) => state.NatoCountriesEconomies, 
   NatoCountriesGDPDATA: (state) => state.NatoCountriesGDPDATA,
+  EconomyMilitarySize: (state) => state.EconomyMilitarySize,
 };
 
 const actions = {

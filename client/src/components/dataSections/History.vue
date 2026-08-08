@@ -12,6 +12,7 @@
     <div class="graph-area">
       <EconomiesBarChart />
       <GnpGraphs />
+      <EconomyMilitarySize />
     </div>
   </div>
 </template>
@@ -26,6 +27,7 @@ import TimeLine from '@/components/historyGraphs/TimeLine.vue';
 // Economic Graphs 
 import EconomiesBarChart from '@/components/EconomicGraphs/Economies.vue';
 import GnpGraphs from '@/components/EconomicGraphs/GnpGraphs.vue';
+import EconomyMilitarySize from '@/components/EconomicGraphs/EconomyMilitarySize.vue';
 
 export default {
   name: "History",
@@ -37,6 +39,7 @@ export default {
     TimeLine, 
     EconomiesBarChart, 
     GnpGraphs,
+    EconomyMilitarySize, 
   },
 }
 
