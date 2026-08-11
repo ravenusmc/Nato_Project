@@ -111,6 +111,16 @@ export default {
         .transition()
         .duration(1500)
         .attr("cy", (d) => y(d[1]));
+    
+      // Labels
+      // X-axis
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("GDP (Billion USD)");
 
     }
   },
