@@ -1,7 +1,6 @@
 <template>
   <div>
     <div ref="EconomyMilitarySize"></div>
-    test
   </div>
 </template>
 
@@ -121,6 +120,24 @@ export default {
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("GDP (Billion USD)");
+    
+      // Y-Axis 
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Defense Budget (Billion USD)");
+      
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2 + 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Economy Size Vs Defense Budget");
 
     }
   },
