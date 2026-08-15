@@ -127,6 +127,9 @@ class BuildData():
       economy_size_vs_military_spending_data.append(rows)
       economy_size_vs_military_spending_data.sort(key=lambda x: x[1])
     print(economy_size_vs_military_spending_data)
+
+  def population_vs_economy_size(self):
+    population_vs_economy_size_data = []
     
 
 
