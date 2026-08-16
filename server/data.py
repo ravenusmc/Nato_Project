@@ -130,8 +130,17 @@ class BuildData():
 
   def population_vs_economy_size(self):
     population_vs_economy_size_data = []
+    unique_states = self.data.drop_duplicates(subset=["Country"])
+    for Population_M, GDP_Billion_USD, country in zip(unique_states['Population_M'], unique_states['GDP_Billion_USD'], unique_states['Country']):
+      rows = []
+      rows.append(Population_M) # Population is in millions. 
+      rows.append(GDP_Billion_USD) # Billions of USD Dollar 
+      rows.append(country)
+      population_vs_economy_size_data.append(rows)
+      population_vs_economy_size_data.sort(key=lambda x: x[1])
+    print(population_vs_economy_size_data)
     
 
 
 obj = BuildData()
-obj.economy_size_vs_military_spending() 
+obj.population_vs_economy_size() 
