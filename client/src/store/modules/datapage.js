@@ -156,7 +156,42 @@ const data = {
     [3322.92, 48.18, 'United Kingdom'], 
     [1487.9, 51.18, 'Spain'], 
     [4274.2, 179.09, 'Germany'], 
-    [26634.71, 761.75, 'United States']]
+    [26634.71, 761.75, 'United States']
+  ],
+  populationVsEconomySizeData: [
+    [0.59, 5.57, 'Montenegro'], 
+    [2.08, 12.51, 'North Macedonia'], 
+    [2.79, 18.66, 'Albania'], 
+    [0.4, 25.37, 'Iceland'], 
+    [1.3, 36.7, 'Estonia'], 
+    [1.8, 38.92, 'Latvia'], 
+    [2.09, 63.38, 'Slovenia'], 
+    [3.88, 64.38, 'Croatia'], 
+    [2.8, 70.77, 'Lithuania'], 
+    [0.6, 82.53, 'Luxembourg'], 
+    [6.48, 86.93, 'Bulgaria'], 
+    [5.48, 118.63, 'Slovakia'], 
+    [9.66, 186.34, 'Hungary'], 
+    [10.66, 226.7, 'Greece'], 
+    [10.26, 246.3, 'Portugal'], 
+    [10.81, 280.83, 'Czech Republic'], 
+    [5.52, 295.89, 'Finland'], 
+    [19.06, 296.25, 'Romania'], 
+    [5.9, 386.71, 'Denmark'], 
+    [5.43, 544.14, 'Norway'], 
+    [11.64, 558.41, 'Belgium'], 
+    [10.43, 581.53, 'Sweden'], 
+    [37.52, 643.65, 'Poland'], 
+    [85.0, 879.28, 'Türkiye'], 
+    [17.57, 1033.91, 'Netherlands'], 
+    [47.04, 1487.9, 'Spain'], 
+    [37.88, 1970.55, 'Canada'], 
+    [60.68, 1999.6, 'Italy'], 
+    [67.42, 3130.85, 'France'], 
+    [67.98, 3322.92, 'United Kingdom'],
+     [82.54, 4274.2, 'Germany'], 
+     [332.46, 26634.71, 'United States']
+    ],
 }
 
 const getters = {
