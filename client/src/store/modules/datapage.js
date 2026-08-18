@@ -189,9 +189,9 @@ const data = {
     [60.68, 1999.6, 'Italy'], 
     [67.42, 3130.85, 'France'], 
     [67.98, 3322.92, 'United Kingdom'],
-     [82.54, 4274.2, 'Germany'], 
-     [332.46, 26634.71, 'United States']
-    ],
+    [82.54, 4274.2, 'Germany'], 
+    [332.46, 26634.71, 'United States']
+  ],
 }
 
 const getters = {
@@ -205,6 +205,7 @@ const getters = {
   NatoCountriesEconomies: (state) => state.NatoCountriesEconomies, 
   NatoCountriesGDPDATA: (state) => state.NatoCountriesGDPDATA,
   EconomyMilitarySize: (state) => state.EconomyMilitarySize,
+  populationVsEconomySizeData: (state) => state.populationVsEconomySizeData, 
 };
 
 const actions = {
