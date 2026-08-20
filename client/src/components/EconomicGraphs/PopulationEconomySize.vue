@@ -27,6 +27,13 @@ export default {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
+      
+          // X axis
+      const x = d3
+        .scaleBand()
+        .range([0, width])
+        .domain(this.EconomyMilitarySize.map((d) => d[0]))
+        .padding(0.2);
 
     }
   },
