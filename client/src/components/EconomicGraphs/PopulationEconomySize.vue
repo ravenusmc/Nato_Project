@@ -32,7 +32,7 @@ export default {
       const x = d3
         .scaleBand()
         .range([0, width])
-        .domain(this.EconomyMilitarySize.map((d) => d[0]))
+        .domain(this.populationVsEconomySizeData.map((d) => d[0]))
         .padding(0.2);
 
     }
