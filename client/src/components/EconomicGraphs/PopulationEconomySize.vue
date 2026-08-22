@@ -28,12 +28,70 @@ export default {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
       
-          // X axis
+      // X axis
       const x = d3
         .scaleBand()
         .range([0, width])
         .domain(this.populationVsEconomySizeData.map((d) => d[0]))
         .padding(0.2);
+    
+      // Draw the x-axis, then rotate its labels 45 degrees so long state names don't overlap
+      svg
+        .append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "rotate(45)")
+        .attr("text-anchor", "start")
+        .attr("dx", "0.5em")
+        .attr("dy", "0.5em");
+      
+      // Y axis
+      const y = d3
+        .scaleLinear()
+        .domain([0, d3.max(this.populationVsEconomySizeData, (d) => d[1])])
+        .range([height, 0]);
+      svg.append("g").call(d3.axisLeft(y));
+
+      // Tooltip
+      const tooltip = d3
+        .select(this.$refs.PopulationEconomySize)
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("background-color", "white")
+        .style("border", "1px solid #ccc")
+        .style("padding", "8px")
+        .style("border-radius", "5px");
+
+      const showTooltip = (event, d) => {
+        tooltip
+          .style("opacity", 1)
+          .html(`Country: ${d[2]}<br> GDP (in billions): ${d[0]}<br>Defense Budget (in billions): ${d[1]}`)
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 10 + "px");
+      };
+      const moveTooltip = (event) => {
+        tooltip.style("left", event.pageX + 10 + "px").style("top", event.pageY - 10 + "px");
+      };
+      const hideTooltip = () => {
+        tooltip.style("opacity", 0);
+      };
+
+      // Line connecting points
+      const line = d3
+        .line()
+        .x((d) => x(d[0]) + x.bandwidth() / 2)
+        .y((d) => y(d[1]));
+      
+      svg
+        .append("path")
+        .datum(this.populationVsEconomySizeData)
+        .attr("fill", "none")
+        .attr("stroke", "#003B75")
+        .attr("stroke-width", 2)
+        .attr("d", line);
 
     }
   },
