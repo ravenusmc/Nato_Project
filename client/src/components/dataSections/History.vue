@@ -52,7 +52,7 @@ export default {
 
 .graph-area {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .title-area {
