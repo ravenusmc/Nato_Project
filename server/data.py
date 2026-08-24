@@ -139,6 +139,10 @@ class BuildData():
       population_vs_economy_size_data.append(rows)
       population_vs_economy_size_data.sort(key=lambda x: x[1])
     print(population_vs_economy_size_data)
+
+  def country_GDP_By_Year(self): 
+    economy_by_year_data = []
+    
     
 
 

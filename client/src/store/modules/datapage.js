@@ -11,6 +11,7 @@ const data = {
     'Netherlands', 'Norway', 'Portugal', 'United Kingdom', 'United States'
   ],
   initialMapYear: 1949, 
+  initialState: "Albania",
   joinByDecadeData: [['1940-1949', 12], ['1950-1959', 3], ['1980-1989', 1], ['1990-1999', 3], ['2000-2009', 9], ['2010-2019', 1], ['2020-2029', 3]], 
   foundingMemberPieChart: [[12, 20]], 
   yearsInNatoData: [[0, 1], [1, 1], [4, 1], [7, 1], [15, 2], [20, 7], [25, 3], [42, 1], [69, 1], [72, 2], [75, 12]],
@@ -206,6 +207,7 @@ const getters = {
   NatoCountriesGDPDATA: (state) => state.NatoCountriesGDPDATA,
   EconomyMilitarySize: (state) => state.EconomyMilitarySize,
   populationVsEconomySizeData: (state) => state.populationVsEconomySizeData, 
+  initialState: (state) => state.initialState,
 };
 
 const actions = {
@@ -234,6 +236,10 @@ const mutations = {
 	setInitialMapYear(state, value) {
     state.initialMapYear = value; 
   }, 
+
+  setInitialState(state, value) {
+    state.initialState = value;
+  },
 
 };
 
