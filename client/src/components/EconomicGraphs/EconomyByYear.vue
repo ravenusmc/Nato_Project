@@ -28,8 +28,7 @@ export default {
   methods: {
     ...mapActions("datapage", ["grabMapData"]),
     handleSubmit() {
-      console.log("HERE")
-      // const payload = { year: this.year };
+      const payload = { state: this.selectedState };
       // this.grabMapData(payload);
     },
   }

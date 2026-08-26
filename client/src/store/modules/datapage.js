@@ -225,6 +225,10 @@ const actions = {
 			});
 	},
 
+  getStateEconomyGraphData: ({ commit }, payload) => {
+    
+  }
+
 };
 
 const mutations = {
