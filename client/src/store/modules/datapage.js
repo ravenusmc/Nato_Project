@@ -217,7 +217,6 @@ const actions = {
 		const path = 'http://localhost:5000/getInitialDataForMapGraph';
     axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
 			.then((res) => {
-        console.log(res.data)
 				commit('setNATO_States', res.data)
 			})
 			.catch((error) => {
@@ -226,7 +225,15 @@ const actions = {
 	},
 
   getStateEconomyGraphData: ({ commit }, payload) => {
-    
+    const path = 'http://localhost:5000/getDataForStateAndEconomyGraph';
+    axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
+			.then((res) => {
+        console.log(res.data)
+				commit('setNATO_States', res.data)
+			})
+			.catch((error) => {
+				console.log(error);
+			});
   }
 
 };
