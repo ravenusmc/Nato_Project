@@ -27,7 +27,11 @@ def getDataForHistoryGraphs():
     post_data = request.get_json()
     NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
 
-
+def getDataForStateAndEconomyGraph():
+   if request.method == 'POST': 
+    get_data_object = BuildData()
+    post_data = request.get_json()
+    state_GDP_Data = get_data_object.country_GDP_By_Year()
    
 
 
