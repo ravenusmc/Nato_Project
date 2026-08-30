@@ -142,10 +142,21 @@ class BuildData():
 
   def country_GDP_By_Year(self, state): 
     economy_by_year_data = []
+    #I need to filter by the selected state. 
+    filtered_df_by_state = self.data[self.data['Country'] == state]
+    founding_year = 1949
+    filtered_df_by_state.sort_values(by="Year", ascending=False)
+    for Year, GDP_Billion_USD in zip(filtered_df_by_state['Year'], filtered_df_by_state['GDP_Billion_USD']):
+      rows = []
+      print(Year)
+      print(GDP_Billion_USD)
+      input()
+
+
 
     
     
 
 
 obj = BuildData()
-obj.population_vs_economy_size() 
+obj.country_GDP_By_Year('Belgium') 
