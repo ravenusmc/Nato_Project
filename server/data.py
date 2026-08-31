@@ -148,10 +148,10 @@ class BuildData():
     filtered_df_by_state.sort_values(by="Year", ascending=False)
     for Year, GDP_Billion_USD in zip(filtered_df_by_state['Year'], filtered_df_by_state['GDP_Billion_USD']):
       rows = []
-      print(Year)
-      print(GDP_Billion_USD)
-      input()
-
+      rows.append(Year)
+      rows.append(GDP_Billion_USD)
+      economy_by_year_data.append(rows)
+      print(economy_by_year_data)
 
 
     
