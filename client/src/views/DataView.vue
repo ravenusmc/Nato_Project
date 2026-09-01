@@ -39,7 +39,6 @@ export default {
       this.grabMapData(payload);
     },
     buildWorldMap() {
-
     }  
   }
 }

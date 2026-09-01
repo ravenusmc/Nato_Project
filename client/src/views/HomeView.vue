@@ -11,6 +11,7 @@
 import Top from '@/components/landing/Top.vue'
 import Middle from '@/components/landing/Middle.vue'
 import Bottom from '@/components/landing/Bottom.vue'
+import { mapActions } from "vuex";
 
 export default {
   name: 'HomeView',
@@ -18,7 +19,18 @@ export default {
     Top,
     Middle, 
     Bottom, 
-  }
+  },
+   mounted() {
+    this.setUpDataForGraphs();
+  },  
+  methods: {
+    ...mapActions("datapage", ["getDataForGraphs"]),
+    setUpDataForGraphs() {
+      this.getDataForGraphs();
+    }
+  },
+
+  //Reference site: https://github.com/ravenusmc/Everest_Study/blob/main/client/src/views/HomeView.vue - erase when not needed
 }
 </script>
 
