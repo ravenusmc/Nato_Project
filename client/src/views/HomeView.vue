@@ -30,7 +30,7 @@ export default {
     }
   },
 
-  //Reference site: https://github.com/ravenusmc/Everest_Study/blob/main/client/src/views/HomeView.vue  -- erase
+  //Reference site: https://github.com/ravenusmc/Everest_Study/blob/main/client/src/views/HomeView.vue 
 }
 </script>
 
