@@ -26,10 +26,10 @@ export default {
     ...mapGetters("datapage", ["initialState", "NATO_States"]),
   },
   methods: {
-    ...mapActions("datapage", ["grabMapData"]),
+    ...mapActions("datapage", ["getStateEconomyGraphData"]),
     handleSubmit() {
       const payload = { state: this.selectedState };
-      // this.grabMapData(payload);
+      this.getStateEconomyGraphData(payload);
     },
   }
 }
