@@ -7,6 +7,7 @@
 </template>
 
 <script>
+  //Reference site: https://github.com/ravenusmc/Everest_Study/blob/main/client/src/views/HomeView.vue
 // @ is an alias to /src
 import Top from '@/components/landing/Top.vue'
 import Middle from '@/components/landing/Middle.vue'
@@ -29,8 +30,8 @@ export default {
       this.getDataForGraphs();
     }
   },
+}
 
-  //Reference site: https://github.com/ravenusmc/Everest_Study/blob/main/client/src/views/HomeView.vue
 </script>
 
 <style scoped>
