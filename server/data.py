@@ -158,5 +158,5 @@ class BuildData():
     
 
 
-obj = BuildData()
-obj.country_GDP_By_Year('Belgium') 
+# obj = BuildData()
+# obj.country_GDP_By_Year('Belgium') 

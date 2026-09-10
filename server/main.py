@@ -21,17 +21,21 @@ def getInitialDataForGraphs():
       print(NATO_states_data)
       return jsonify(NATO_states_data)
 
-def getDataForHistoryGraphs():
-  if request.method == 'POST':
-    get_data_object = BuildData()
-    post_data = request.get_json()
-    NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
+# Why did I write this here - research 
+# def getDataForHistoryGraphs():
+#   if request.method == 'POST':
+#     get_data_object = BuildData()
+#     post_data = request.get_json()
+#     NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
 
+@app.route('/getDataForStateAndEconomyGraph', methods=['GET', 'POST'])
 def getDataForStateAndEconomyGraph():
    if request.method == 'POST': 
     get_data_object = BuildData()
     post_data = request.get_json()
-    state_GDP_Data = get_data_object.country_GDP_By_Year()
+    print('HERE')
+    print(post_data)
+    # state_GDP_Data = get_data_object.country_GDP_By_Year()
    
 
 
