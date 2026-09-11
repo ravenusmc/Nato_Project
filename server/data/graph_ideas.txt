@@ -128,3 +128,12 @@ For a NATO dashboard, I think the strongest combination would be:
 * Bubble chart of GDP vs military size vs defense budget
 
 Those together would tell a story of NATO's growth, economic power, military power, and operational readiness.
+
+keeping in case I need again: 
+
+# Why did I write this here - research 
+# def getDataForHistoryGraphs():
+#   if request.method == 'POST':
+#     get_data_object = BuildData()
+#     post_data = request.get_json()
+#     NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
