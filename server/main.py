@@ -28,9 +28,9 @@ def getDataForStateAndEconomyGraph():
    if request.method == 'POST': 
     get_data_object = BuildData()
     post_data = request.get_json()
-    print('HERE')
-    print(post_data)
-    # state_GDP_Data = get_data_object.country_GDP_By_Year()
+    state = post_data['state']
+    state_GDP_Data = get_data_object.country_GDP_By_Year(state)
+    return jsonify(state_GDP_Data)
    
 
 

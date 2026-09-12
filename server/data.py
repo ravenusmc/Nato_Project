@@ -142,7 +142,6 @@ class BuildData():
 
   def country_GDP_By_Year(self, state): 
     economy_by_year_data = []
-    #I need to filter by the selected state. 
     filtered_df_by_state = self.data[self.data['Country'] == state]
     founding_year = 1949
     filtered_df_by_state.sort_values(by="Year", ascending=False)
@@ -151,7 +150,7 @@ class BuildData():
       rows.append(Year)
       rows.append(GDP_Billion_USD)
       economy_by_year_data.append(rows)
-      print(economy_by_year_data)
+    return economy_by_year_data
 
 
     
