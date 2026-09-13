@@ -20,7 +20,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "EconomyByYear",
   data: {
-    selectedState: "", 
+    selectedState: "Belgium", 
   },
   computed: {
     ...mapGetters("datapage", ["initialState", "NATO_States"]),

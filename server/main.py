@@ -11,6 +11,14 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+@app.route('/getInitialDataforGraphs', methods=['GET', 'POST'])
+def getInitialDataforGraphs():
+   if request.method == 'POST': 
+    get_data_object = BuildData()
+    state_GDP_Data = get_data_object.country_GDP_By_Year('Belgium')
+    return jsonify(state_GDP_Data)
+     
+
 @app.route('/getInitialDataForMapGraph', methods=['GET', 'POST'])
 def getInitialDataForGraphs():
     if request.method == 'POST':
@@ -20,7 +28,6 @@ def getInitialDataForGraphs():
       NATO_states_data = get_data_object.get_data_for_year(year)
       print(NATO_states_data)
       return jsonify(NATO_states_data)
-
 
 
 @app.route('/getDataForStateAndEconomyGraph', methods=['GET', 'POST'])

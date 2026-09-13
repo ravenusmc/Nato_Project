@@ -11,6 +11,7 @@ const data = {
     'Netherlands', 'Norway', 'Portugal', 'United Kingdom', 'United States'
   ],
   initialMapYear: 1949, 
+  stateEconomicDataByYear: [],
   initialState: "Albania",
   joinByDecadeData: [['1940-1949', 12], ['1950-1959', 3], ['1980-1989', 1], ['1990-1999', 3], ['2000-2009', 9], ['2010-2019', 1], ['2020-2029', 3]], 
   foundingMemberPieChart: [[12, 20]], 
@@ -224,6 +225,18 @@ const actions = {
 			});
 	},
 
+  getDataForGraphs: ({ commit }, payload) => {
+    const path = 'http://localhost:5000/getInitialDataforGraphs';
+    axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
+    	.then((res) => {
+        console.log(res.data)
+				commit('setStateEconomicDataByYear', res.data)
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+  },
+
   getStateEconomyGraphData: ({ commit }, payload) => {
     const path = 'http://localhost:5000/getDataForStateAndEconomyGraph';
     axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
@@ -250,6 +263,10 @@ const mutations = {
 
   setInitialState(state, value) {
     state.initialState = value;
+  },
+
+  setStateEconomicDataByYear(state, value) {
+    state.stateEconomicDataByYear = value;
   },
 
 };
