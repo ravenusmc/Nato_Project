@@ -209,6 +209,7 @@ const getters = {
   EconomyMilitarySize: (state) => state.EconomyMilitarySize,
   populationVsEconomySizeData: (state) => state.populationVsEconomySizeData, 
   initialState: (state) => state.initialState,
+  stateEconomicDataByYear: (state) => state.stateEconomicDataByYear,
 };
 
 const actions = {

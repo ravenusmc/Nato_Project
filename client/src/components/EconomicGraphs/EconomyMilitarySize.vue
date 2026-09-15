@@ -13,7 +13,7 @@ export default {
   computed: {
     ...mapGetters("datapage", ["EconomyMilitarySize"]),
   },
-    methods: {
+  methods: {
     buildEconomyMilitarySizeGraph() {
 
       // Widened chart and increased bottom margin so rotated x-axis labels have room to breathe

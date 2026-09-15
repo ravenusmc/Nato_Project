@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import * as d3 from "d3";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -53,8 +54,33 @@ export default {
         .range([0, width])
         .domain(this.stateEconomicDataByYear.map((d) => d[0]))
         .padding(0.3); // more padding between bands so adjacent labels don't touch
+      
+      // Draw the x-axis, then rotate its labels 45 degrees so long state names don't overlap
+      svg
+        .append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "rotate(45)")
+        .attr("text-anchor", "start")
+        .attr("dx", "0.7em") // pushed labels further from their tick marks
+        .attr("dy", "0.6em")
+        .style("font-size", "11px"); // slightly smaller text to reduce crowding
+      
+      // Y axis
+      const y = d3
+        .scaleLinear()
+        .domain([0, d3.max(this.stateEconomicDataByYear, (d) => d[1])])
+        .range([height, 0]);
+        svg.append("g").call(d3.axisLeft(y));
+
+
     },
-  }
+    
+  },
+  mounted() {
+    this.buildEconomyByYearGraph();
+  },
   // Using a watcher example: https://github.com/ravenusmc/Social_Media_Mental_Health/blob/main/client/src/components/graphs/DetoxVsStress.vue
 }
 </script>
