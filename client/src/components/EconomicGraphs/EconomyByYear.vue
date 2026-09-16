@@ -27,6 +27,13 @@ export default {
   computed: {
     ...mapGetters("datapage", ["initialState", "NATO_States", "stateEconomicDataByYear"]),
   },
+  watch: {
+    stateEconomicDataByYear(newVal) {
+      if (newVal.length) {
+        this.buildEconomyByYearGraph();
+      }
+    }
+  },
   methods: {
     ...mapActions("datapage", ["getStateEconomyGraphData"]),
     handleSubmit() {
