@@ -107,6 +107,12 @@ export default {
         tooltip.style("opacity", 0);
       };
 
+            // Line connecting points
+      const line = d3
+        .line()
+        .x((d) => x(d[0]) + x.bandwidth() / 2)
+        .y((d) => y(d[1]));
+
     },
     
   },
