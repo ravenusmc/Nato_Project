@@ -21,8 +21,10 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "EconomyByYear",
-  data: {
-    selectedState: "Belgium", 
+  data() {
+    return {
+      selectedState: "Belgium",
+    };
   },
   computed: {
     ...mapGetters("datapage", ["initialState", "NATO_States", "stateEconomicDataByYear"]),
@@ -41,6 +43,9 @@ export default {
       this.getStateEconomyGraphData(payload);
     },
     buildEconomyByYearGraph() {
+
+      // Remove old SVG
+      d3.select(this.$refs.StateEconomyByYearGraph).selectAll("*").remove();
       
       // Widened chart and increased bottom margin so rotated x-axis labels have room to breathe
       const margin = { top: 50, right: 30, bottom: 70, left: 70 };
@@ -54,6 +59,8 @@ export default {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
+      
+      console.log(this.stateEconomicDataByYear)
       
       // X axis
       const x = d3
@@ -107,12 +114,47 @@ export default {
         tooltip.style("opacity", 0);
       };
 
-            // Line connecting points
+      // Line connecting points
       const line = d3
         .line()
         .x((d) => x(d[0]) + x.bandwidth() / 2)
         .y((d) => y(d[1]));
 
+      svg
+        .append("path")
+        .datum(this.stateEconomicDataByYear)
+        .attr("fill", "none")
+        .attr("stroke", "#003B75")
+        .attr("stroke-width", 2)
+        .attr("d", line);
+
+      // Points
+      svg
+        .selectAll("circle")
+        .data(this.stateEconomicDataByYear)
+        .enter()
+        .append("circle")
+        .attr("cx", (d) => x(d[0]) + x.bandwidth() / 2)
+        .attr("cy", height)
+        .attr("r", 6)
+        .attr("fill", "#003B75")
+        .on("click", (event, d) => this.handleBarClick(d, event))
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip)
+        .transition()
+        .duration(1500)
+        .attr("cy", (d) => y(d[1]));
+
+      // Labels
+      // X-axis
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Year");
     },
     
   },
