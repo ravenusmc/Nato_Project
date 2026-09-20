@@ -137,3 +137,6 @@ keeping in case I need again:
 #     get_data_object = BuildData()
 #     post_data = request.get_json()
 #     NATO_STATES_JOIN_YEAR = get_data_object.get_NATO_join_by_decade()
+
+using a watcher: 
+  // Using a watcher example: https://github.com/ravenusmc/Social_Media_Mental_Health/blob/main/client/src/components/graphs/DetoxVsStress.vue

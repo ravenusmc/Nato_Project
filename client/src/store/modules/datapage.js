@@ -10,6 +10,11 @@ const data = {
     'Belgium', 'Canada', 'Denmark', 'France', 'Iceland', 'Italy', 'Luxembourg',
     'Netherlands', 'Norway', 'Portugal', 'United Kingdom', 'United States'
   ],
+  // Dropdown list for the state economy graph (kept separate from NATO_States, which the map overwrites)
+  economyGraphStates: [
+    'Belgium', 'Canada', 'Denmark', 'France', 'Iceland', 'Italy', 'Luxembourg',
+    'Netherlands', 'Norway', 'Portugal', 'United Kingdom', 'United States'
+  ],
   initialMapYear: 1949, 
   stateEconomicDataByYear: [],
   initialState: "Albania",
@@ -198,6 +203,7 @@ const data = {
 
 const getters = {
   NATO_States: (state) => state.NATO_States,
+  economyGraphStates: (state) => state.economyGraphStates,
   initialMapYear: (state) => state.initialMapYear, 
   joinByDecadeData: (state) => state.joinByDecadeData,
   foundingMemberPieChart: (state) => state.foundingMemberPieChart, 
@@ -230,7 +236,7 @@ const actions = {
     const path = 'http://localhost:5000/getInitialDataforGraphs';
     axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
     	.then((res) => {
-        console.log(res.data)
+        console.log('ACTION!')
 				commit('setStateEconomicDataByYear', res.data)
 			})
 			.catch((error) => {
@@ -242,8 +248,7 @@ const actions = {
     const path = 'http://localhost:5000/getDataForStateAndEconomyGraph';
     axios.post(path, payload, { headers: { 'Content-Type': 'application/json' } })
 			.then((res) => {
-        console.log(res.data)
-				commit('setNATO_States', res.data)
+				commit('setStateEconomicDataByYear', res.data)
 			})
 			.catch((error) => {
 				console.log(error);

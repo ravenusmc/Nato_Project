@@ -4,7 +4,7 @@
         <div>
           <label for="state">Please Select State: </label>
           <select v-model="selectedState">
-            <option v-for="state in NATO_States" :key="state" >
+            <option v-for="state in economyGraphStates" :key="state" >
               {{ state }}
             </option>
           </select>
@@ -27,11 +27,19 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("datapage", ["initialState", "NATO_States", "stateEconomicDataByYear"]),
+    ...mapGetters("datapage", ["initialState", "economyGraphStates", "stateEconomicDataByYear"]),
   },
   watch: {
+    selectedState(newState) {
+      console.log("Selected state changed:", newState);
+
+      this.getStateEconomyGraphData({
+        state: newState
+      });
+    },
+
     stateEconomicDataByYear(newVal) {
-      if (newVal.length) {
+      if (newVal && newVal.length) {
         this.buildEconomyByYearGraph();
       }
     }
@@ -43,7 +51,8 @@ export default {
       this.getStateEconomyGraphData(payload);
     },
     buildEconomyByYearGraph() {
-
+      //No data here
+      console.log(this.stateEconomicDataByYear)
       // Remove old SVG
       d3.select(this.$refs.StateEconomyByYearGraph).selectAll("*").remove();
       
@@ -90,7 +99,7 @@ export default {
 
       // Tooltip
       const tooltip = d3
-        .select(this.$refs.EconomyMilitarySize)
+        .select(this.$refs.StateEconomyByYearGraph)
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")
@@ -103,7 +112,7 @@ export default {
       const showTooltip = (event, d) => {
         tooltip
           .style("opacity", 1)
-          .html(`Country: ${d[2]}<br> GDP (in billions): ${d[0]}<br>Defense Budget (in billions): ${d[1]}`)
+          .html(`Year: ${d[0]}<br>GDP (in billions): ${d[1]}`)
           .style("left", event.pageX + 10 + "px")
           .style("top", event.pageY - 10 + "px");
       };
@@ -138,7 +147,7 @@ export default {
         .attr("cy", height)
         .attr("r", 6)
         .attr("fill", "#003B75")
-        .on("click", (event, d) => this.handleBarClick(d, event))
+        // .on("click", (event, d) => this.handleBarClick(d, event))
         .on("mouseover", showTooltip)
         .on("mousemove", moveTooltip)
         .on("mouseleave", hideTooltip)
@@ -161,6 +170,5 @@ export default {
   mounted() {
     this.buildEconomyByYearGraph();
   },
-  // Using a watcher example: https://github.com/ravenusmc/Social_Media_Mental_Health/blob/main/client/src/components/graphs/DetoxVsStress.vue
 }
 </script>

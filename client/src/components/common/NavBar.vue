@@ -12,6 +12,9 @@
     <!-- Nav links -->
     <ul class="nav-links">
       <li>
+        <a href="/" class="nav-link">HOME</a>
+      </li>
+      <li>
         <a href="/data" class="nav-link">DATA</a>
       </li>
       <li>
