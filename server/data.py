@@ -11,7 +11,11 @@ class BuildData():
   
   def test(self):
     print(self.data.head())
-  
+
+  def get_unique_states(self):
+    distinct_states = self.data['Country'].unique().tolist()
+    print(distinct_states)    
+
   def get_data_for_year(self, year):
     distinct_by_year = self.data[self.data['Year'] == int(year)]['Country'].unique().tolist()
     return distinct_by_year
@@ -157,5 +161,5 @@ class BuildData():
     
 
 
-# obj = BuildData()
-# obj.country_GDP_By_Year('Belgium') 
+obj = BuildData()
+obj.get_unique_states() 

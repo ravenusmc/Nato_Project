@@ -37,7 +37,6 @@ export default {
         state: newState
       });
     },
-
     stateEconomicDataByYear(newVal) {
       if (newVal && newVal.length) {
         this.buildEconomyByYearGraph();
@@ -168,6 +167,7 @@ export default {
     
   },
   mounted() {
+    this.getStateEconomyGraphData({ state: this.selectedState })
     this.buildEconomyByYearGraph();
   },
 }
