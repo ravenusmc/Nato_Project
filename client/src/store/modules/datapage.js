@@ -12,8 +12,9 @@ const data = {
   ],
   // Dropdown list for the state economy graph (kept separate from NATO_States, which the map overwrites)
   economyGraphStates: [
-    'Belgium', 'Canada', 'Denmark', 'France', 'Iceland', 'Italy', 'Luxembourg',
-    'Netherlands', 'Norway', 'Portugal', 'United Kingdom', 'United States'
+    'Albania', 'Belgium', 'Bulgaria', 'Canada', 'Croatia', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 
+    'Greece', 'Hungary', 'Iceland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Montenegro', 'Netherlands', 'North Macedonia', 'Norway', 
+    'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Türkiye', 'United Kingdom', 'United States'
   ],
   initialMapYear: 1949, 
   stateEconomicDataByYear: [],
