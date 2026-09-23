@@ -131,7 +131,7 @@ export default {
         .attr("y", -margin.left + 20)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Defense Budget (Billion USD)");
+        .text("GDP (Billion USD)");
       
       svg
         .append("text")
@@ -139,7 +139,7 @@ export default {
         .attr("y", -margin.top / 2 + 10)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Economy Size Vs Defense Budget");
+        .text("Economy Size by Year");
 
     }
   },

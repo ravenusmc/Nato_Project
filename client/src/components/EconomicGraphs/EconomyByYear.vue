@@ -57,7 +57,7 @@ export default {
       
       // Widened chart and increased bottom margin so rotated x-axis labels have room to breathe
       const margin = { top: 50, right: 30, bottom: 70, left: 70 };
-      const width = 700 - margin.left - margin.right;
+      const width = 1200 - margin.left - margin.right;
       const height = 400 - margin.top - margin.bottom;
 
       const svg = d3
@@ -163,6 +163,16 @@ export default {
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("Year");
+      
+      // Y-Axis 
+      svg
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("x", -height / 2)
+        .attr("y", -margin.left + 20)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Defense Budget (Billion USD)");
     },
     
   },
