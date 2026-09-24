@@ -18,6 +18,7 @@ export default {
 
       // Widened chart and increased bottom margin so rotated x-axis labels have room to breathe
       const margin = { top: 50, right: 30, bottom: 70, left: 70 };
+      // playing with this value to make all dates fit. 
       const width = 700 - margin.left - margin.right;
       const height = 400 - margin.top - margin.bottom;
 
@@ -140,7 +141,6 @@ export default {
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("Economy Size by Year");
-
     }
   },
   mounted() {
