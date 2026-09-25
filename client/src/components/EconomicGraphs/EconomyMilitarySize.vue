@@ -43,6 +43,7 @@ export default {
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x))
         .selectAll("text")
+        //Rotating the axis
         .attr("transform", "rotate(45)")
         .attr("text-anchor", "start")
         .attr("dx", "0.7em") // pushed labels further from their tick marks
