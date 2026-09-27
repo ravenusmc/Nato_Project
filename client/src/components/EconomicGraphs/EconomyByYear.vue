@@ -9,7 +9,6 @@
             </option>
           </select>
         </div>
-        <button type="submit">Submit</button>
       </form>
       <div ref="StateEconomyByYearGraph"></div>
   </div>
@@ -50,8 +49,7 @@ export default {
       this.getStateEconomyGraphData(payload);
     },
     buildEconomyByYearGraph() {
-      //No data here
-      console.log(this.stateEconomicDataByYear)
+
       // Remove old SVG
       d3.select(this.$refs.StateEconomyByYearGraph).selectAll("*").remove();
       
@@ -67,9 +65,7 @@ export default {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
-      
-      console.log(this.stateEconomicDataByYear)
-      
+    
       // X axis
       const x = d3
         .scaleBand()
@@ -146,7 +142,6 @@ export default {
         .attr("cy", height)
         .attr("r", 6)
         .attr("fill", "#003B75")
-        // .on("click", (event, d) => this.handleBarClick(d, event))
         .on("mouseover", showTooltip)
         .on("mousemove", moveTooltip)
         .on("mouseleave", hideTooltip)
@@ -173,6 +168,15 @@ export default {
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("Defense Budget (Billion USD)");
+      
+      // Title 
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2 + 10)
+        .attr("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .text("Economy by Year for Selected State");
     },
     
   },
