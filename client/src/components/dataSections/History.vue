@@ -8,6 +8,7 @@
       <YearsInNato />
       <FoundingByRegion />
     </div>
+    <hr/>
     <h3 class="title-area">Economic Strength</h3>
     <div class="graph-area">
       <EconomiesBarChart />

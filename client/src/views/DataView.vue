@@ -6,6 +6,7 @@
     <!-- This area is for the global map of NATO states-->
     <Form />
     <Map />
+    <hr/>
     <!-- This area is for the NATO Membership and History graphs -->
      <History />
   </div>
