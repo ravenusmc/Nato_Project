@@ -11,6 +11,7 @@ https://www.kaggle.com/datasets/maulikgajera/nato-alliance-dataset?select=NATO_2
 pictures come from Unsplash: 
 https://unsplash.com/s/photos/nato?license=free
 
+I have done a map, graphs about the history of NATO states joining and their economic strength. I have decided to pause this project for now. 
 
 
 # Getting started
